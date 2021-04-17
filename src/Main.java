@@ -5,6 +5,8 @@ public class Main {
 		UserInterface ui = new UserInterface();
 		int userChoice = 0;
 		
+		ui.startProgram();
+		
 		while(userChoice != 5) {
 			userChoice = ui.showMainMenu();
 			

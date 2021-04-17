@@ -18,7 +18,7 @@ public class UserInterface {
 	}
 	
 	public void startProgram() {
-		
+		System.out.println("Starting Program...");
 	}
 	
 	public int showMainMenu() {
