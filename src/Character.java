@@ -4,7 +4,7 @@ public class Character {
 	private int rarity;
 	private Element element;
 	private int level;
-	//private Weapon weapon;
+	private Weapon weapon;
 	
 	public Character(String name, int rarity, Element element, int level) {
 		this.setName(name);
@@ -83,6 +83,12 @@ public class Character {
 		this.level = level;
 	}
 	
+	public Weapon getWeapon() {
+		return this.weapon;
+	}
 	
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
 	
 }
