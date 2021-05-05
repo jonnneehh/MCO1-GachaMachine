@@ -3,7 +3,9 @@ public class Map {
 	//Variables
 	private String name;
 	private int mapBaseAmount;
-	public Enemy[] enemyList;
+	private Enemy[] enemyList;
+	private int charInflu;
+	
 	
 	
 	//Constructors
@@ -14,13 +16,18 @@ public class Map {
 	}
 	
 	
-	
 	//Methods
-	/*
-	 * public ..... computeCharacterSuperiority(one character)
-	 * public ..... computeCharacterSuperiority(two characters)
-	 * public int computeEnemySuperiority()
-	 * */
+	 public int computeCharacterSuperiority(Character chr) {
+		 return charInflu = chr.computeTotalCharInfluence();
+	 }
+	 public int computeCharacterSuperiority(two characters) {
+		 
+	 }
+	 public int computeEnemySuperiority(Enemy enemyList) {
+		 for()
+		 enemyList.getPower();
+	 }
+	 
 	
 	//Getters and Setters
 	public String getName() {
