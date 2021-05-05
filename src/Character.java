@@ -90,5 +90,4 @@ public class Character {
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
-	
 }
