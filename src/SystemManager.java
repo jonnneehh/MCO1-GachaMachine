@@ -47,4 +47,11 @@ public class SystemManager {
 	public void setTotalResources(int totalResources) {
 		this.totalResources = totalResources;
 	}
+	
+	public void addNewCharacter(Character c) {
+		c.getName();
+		c.getLevel();
+		c.getElement();
+		
+	}
 }
