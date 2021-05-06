@@ -37,7 +37,7 @@ public class Map {
 	 }
 	 
 	 public int computeSuccess(int characterSuperiority, int enemySuperiority) {
-		 if(characterSuperiority * 0.5 > enemySuperiority * 0.5) {
+		 if(characterSuperiority >= enemySuperiority * 1.5) {
 			 //excellently completed
 			 return 1;
 		 }
