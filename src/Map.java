@@ -36,17 +36,17 @@ public class Map {
 		 return sum;
 	 }
 	 
-	 public boolean computeSuccess(int characterSuperiority, int enemySuperiority) {
+	 public int computeSuccess(int characterSuperiority, int enemySuperiority) {
 		 if(characterSuperiority * 0.5 > enemySuperiority * 0.5) {
 			 //excellently completed
-			 return true;
+			 return 1;
 		 }
 		 else if(characterSuperiority > enemySuperiority) {
 			 //successfully completed 
-			 return true;
+			 return 0;
 		 }
 		 else {
-			 return false;
+			 return -1;
 		 }
 	 }
 	 
