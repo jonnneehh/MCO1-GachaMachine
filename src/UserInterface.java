@@ -37,7 +37,7 @@ public class UserInterface {
 	public int showAllCharacters(/*Character characterList[]*/) {
 		System.out.println("Character Menu: ");
 		System.out.println("1: Level Up Characters");
-		System.out.println("2: Merge Two Character");
+		System.out.println("2: Merge Characters");
 		System.out.println("3: Equip Weapon to Character");
 		System.out.println("4: Back to Main Menu");
 		System.out.print("Enter your choice here: ");

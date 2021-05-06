@@ -3,6 +3,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		UserInterface ui = new UserInterface();
+		SystemManager sm = new SystemManager();
+		
 		int userChoice = 0;
 		
 		ui.startProgram();
@@ -29,6 +31,7 @@ public class Main {
 			else if(userChoice == 3) {
 				do{
 					userChoice = ui.showMaps();
+					//System Managers for showMaps
 				}while(userChoice != 2);
 				userChoice = 0;
 			}
@@ -36,6 +39,7 @@ public class Main {
 			else if(userChoice == 4) {
 				do {
 					userChoice = ui.showGachaMachine();
+					//System Manages for showGachaMachine
 				}while(userChoice != 5);	
 				userChoice = 0;
 			}

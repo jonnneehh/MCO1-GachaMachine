@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 
 public class SystemManager {
 	private int totalResources;
-	public Character characterList[];
-	public Weapon weaponList[];
-	
+	public ArrayList<Character> characterList = new ArrayList<Character>();
+	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
+
 	public void levelUp(Weapon w) {
 		w.setLevel(w.getLevel() + 1);
 		this.setTotalResources(this.getTotalResources() - 1);
