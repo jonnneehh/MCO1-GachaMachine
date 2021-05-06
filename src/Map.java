@@ -25,6 +25,7 @@ public class Map {
 		 return (c1.getWeapon().computeFinalWeaponPower() * (c1.computeTotalCharInfluence() / 10)) + (c2.getWeapon().computeFinalWeaponPower() * (c2.computeTotalCharInfluence() / 10));
 
 	 }
+<<<<<<< HEAD
 	 
 	 public int computeEnemySuperiority() {
 		 int sum = 0;
@@ -36,6 +37,24 @@ public class Map {
 		 }
 		 
 		 return sum;
+=======
+	 public int computeEnemySuperiority(ArrayList<Enemy> enemy) {
+		 return 1; //not yet finished
+	 }
+	 public boolean computeSuccess(int characterSuperiority, int enemySuperiority) {
+		 if(characterSuperiority * 0.5 > enemySuperiority * 0.5) {
+			 //excellently completed
+			 return true;
+		 }
+		 else if(characterSuperiority > enemySuperiority) {
+			 //successfully completed 
+			 return true;
+		 }
+		 else {
+			 return false;
+		 }
+		 
+>>>>>>> 2733998237e1f44db71c468eca0372067a02c958
 	 }
 	 
 	

@@ -47,4 +47,26 @@ public class SystemManager {
 	public void setTotalResources(int totalResources) {
 		this.totalResources = totalResources;
 	}
+	
+	public Character addNewCharacter(String name, int rarity, Element element, int level) {
+		Character c = new Character(name, rarity, element, level);
+		return c;	
+	}
+	
+	public void removeCharacter(Character c) {
+		c = null; 	
+	}
+	
+	public Weapon addNewWeapon(String name, int power, int rarity, int level) {
+		Weapon w = new Weapon(name, power, rarity, level);
+		return w;	
+	}
+	
+	public void removeWeapon(Weapon w) {
+		w = null; 	
+	}
+	
+	public void startAdventure(Character c, Map m) {
+		
+	}
 }
