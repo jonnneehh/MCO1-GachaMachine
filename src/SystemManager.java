@@ -67,7 +67,57 @@ public class SystemManager {
 		w = null; 	
 	}
 	
-	public void startAdventure(Character c, Map m) {
+	public int startAdventure(Character c, Map m, Resources r, int numOfResources) {
+		int enemySuperiority = 0;
+		int characterSuperiority = 0;
+		int success = 0;
+		
+		characterSuperiority = m.computeCharacterSuperiority(c);
+		enemySuperiority = m.computeEnemySuperiority();
+		success = m.computeSuccess(characterSuperiority, enemySuperiority);
+		
+		if(success == 1) {
+			//excellently completed
+			c.setLevel(c.getLevel() + 2);
+		}
+		else if(success == 0) {
+			//successfully completed
+			c.setLevel(c.getLevel() + 1);
+		}
+		else {
+			//check what sir says
+			
+		}
+		
+		return numOfResources += r.totalResourcesGained(m, c);
+		
+	}
+	
+	public int startAdventure(Character c1, Character c2, Map m, Resources r, int numOfResources) {
+		int enemySuperiority = 0;
+		int characterSuperiority = 0;
+		int success = 0;
+		
+		characterSuperiority = m.computeCharacterSuperiority(c1, c2);
+		enemySuperiority = m.computeEnemySuperiority();
+		success = m.computeSuccess(characterSuperiority, enemySuperiority);
+		
+		if(success == 1) {
+			//excellently completed
+			c1.setLevel(c1.getLevel() + 2);
+			c2.setLevel(c2.getLevel() + 2);
+		}
+		else if(success == 0) {
+			//successfully completed
+			c1.setLevel(c1.getLevel() + 1);
+			c2.setLevel(c2.getLevel() + 1);
+		}
+		else {
+			//check what sir says
+			
+		}
+		
+		return numOfResources += r.totalResourcesGained(m, c1, c2);
 		
 	}
 }
