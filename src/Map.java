@@ -25,7 +25,21 @@ public class Map {
 
 	 }
 	 public int computeEnemySuperiority(ArrayList<Enemy> enemy) {
-		 return 1;
+		 return 1; //not yet finished
+	 }
+	 public boolean computeSuccess(int characterSuperiority, int enemySuperiority) {
+		 if(characterSuperiority * 0.5 > enemySuperiority * 0.5) {
+			 //excellently completed
+			 return true;
+		 }
+		 else if(characterSuperiority > enemySuperiority) {
+			 //successfully completed 
+			 return true;
+		 }
+		 else {
+			 return false;
+		 }
+		 
 	 }
 	 
 	
