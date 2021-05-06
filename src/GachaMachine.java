@@ -4,11 +4,20 @@ import java.util.Random;
 public class GachaMachine {
 	
 	public Character pullChar(int totalResources) {
+		int rarity = 0;
+		
 		totalResources = totalResources - 300;
+		rarity = rarityRandomizer();
+		
+		
 	}
 
 	public Weapon pullWeapon(int totalResources) {
+		int rarity = 0;
+		
 		totalResources = totalResources - 300;
+		rarity = rarityRandomizer();
+		
 		
 	}
 	private int rarityRandomizer() {
