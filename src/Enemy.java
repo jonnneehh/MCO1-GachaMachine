@@ -3,9 +3,13 @@ public class Enemy {
 	//Variables
 	private String name;
 	private int power;
-		
+	
 		
 	//Constructors
+	public Enemy() {
+		
+	}
+	
 	public Enemy(String name, int power) {
 		this.setName(name);
 		this.setPower(power);

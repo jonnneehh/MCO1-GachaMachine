@@ -5,14 +5,14 @@ public class Map {
 	//Variables
 	private String name;
 	private int mapBaseAmount;
-	//private Enemy[] enemyList;
-	
-	
-	
+	private ArrayList<Enemy> enemyList = new ArrayList<Enemy>();
+
+
 	//Constructors
-	public Map(String name, int mapBaseAmount, ArrayList<Integer> enemy) {
+	public Map(String name, int mapBaseAmount, ArrayList<Enemy> enemyList) {
 		this.setName(name);
 		this.setMapBaseAmount(mapBaseAmount);
+		this.setEnemyList(enemyList);
 	}
 	
 	
@@ -20,12 +20,22 @@ public class Map {
 	 public int computeCharacterSuperiority(Character c) {
 		 return c.getWeapon().computeFinalWeaponPower() * (c.computeTotalCharInfluence() / 10);
 	 }
+	 
 	 public int computeCharacterSuperiority(Character c1, Character c2) {
 		 return (c1.getWeapon().computeFinalWeaponPower() * (c1.computeTotalCharInfluence() / 10)) + (c2.getWeapon().computeFinalWeaponPower() * (c2.computeTotalCharInfluence() / 10));
 
 	 }
-	 public int computeEnemySuperiority(ArrayList<Enemy> enemy) {
-		 return 1;
+	 
+	 public int computeEnemySuperiority() {
+		 int sum = 0;
+		 Enemy enemy = new Enemy();
+		 
+		 for(int i = 0; i < this.enemyList.size(); i++) {
+			 enemy = this.enemyList.get(i);
+			 sum += enemy.getPower();
+		 }
+		 
+		 return sum;
 	 }
 	 
 	
@@ -42,12 +52,11 @@ public class Map {
 	public void setMapBaseAmount(int mapBaseAmount) {
 		this.mapBaseAmount = mapBaseAmount;
 	}
-	/*
-	public Enemy[] getEnemyList() {
-		return this.enemyList;
+	public ArrayList<Enemy> getEnemyList() {
+		return enemyList;
 	}
-	public void setEnemyList(Enemy[] enemyList) {
+	public void setEnemyList(ArrayList<Enemy> enemyList) {
 		this.enemyList = enemyList;
 	}
-	*/
+	
 }
