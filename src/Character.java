@@ -5,6 +5,7 @@ public class Character {
 	private Element element;
 	private int level;
 	private Weapon weapon;
+	private int inventoryIndex;
 	
 	public Character(String name, int rarity, Element element, int level) {
 		this.setName(name);
@@ -89,5 +90,13 @@ public class Character {
 	
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
+	}
+
+	public int getInventoryIndex() {
+		return inventoryIndex;
+	}
+
+	public void setInventoryIndex(int inventoryIndex) {
+		this.inventoryIndex = inventoryIndex;
 	}
 }

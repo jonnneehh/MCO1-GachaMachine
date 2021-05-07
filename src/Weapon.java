@@ -5,6 +5,7 @@ public class Weapon {
 	private int rarity;
 	private int level;
 	private Character characterOwner;
+	private int inventoryIndex;
 	
 	public Weapon(String name, int power, int rarity, int level) {
 		this.setName(name);
@@ -55,6 +56,14 @@ public class Weapon {
 	
 	public void setCharacterOwner(Character character) {
 		this.characterOwner = character;
+	}
+
+	public int getInventoryIndex() {
+		return inventoryIndex;
+	}
+
+	public void setInventoryIndex(int inventoryIndex) {
+		this.inventoryIndex = inventoryIndex;
 	}
 	
 }

@@ -8,6 +8,7 @@ public class Main {
 		int userChoice = 0;
 		
 		ui.startProgram();
+		sm.startProgram();
 		
 		while(userChoice != 5) {
 			userChoice = ui.showMainMenu();
