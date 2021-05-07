@@ -54,12 +54,25 @@ public class SystemManager {
 		return c;	
 	}
 	
+	//another version
+	public Character addNewCharacter(int index) {
+		Character c = characterList.get(index);
+		return c;	
+	}
+	
+	
 	public void removeCharacter(Character c) {
 		c = null; 	
 	}
 	
 	public Weapon addNewWeapon(String name, int power, int rarity, int level) {
 		Weapon w = new Weapon(name, power, rarity, level);
+		return w;	
+	}
+	
+	//another version
+	public Weapon addNewWeapon(int index) {
+		Weapon w = weaponList.get(index);
 		return w;	
 	}
 	
