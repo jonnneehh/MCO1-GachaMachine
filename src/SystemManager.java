@@ -84,10 +84,6 @@ public class SystemManager {
 			//successfully completed
 			c.setLevel(c.getLevel() + 1);
 		}
-		else {
-			//check what sir says
-			
-		}
 		
 		return numOfResources += r.totalResourcesGained(m, c);
 		
@@ -111,10 +107,6 @@ public class SystemManager {
 			//successfully completed
 			c1.setLevel(c1.getLevel() + 1);
 			c2.setLevel(c2.getLevel() + 1);
-		}
-		else {
-			//check what sir says
-			
 		}
 		
 		return numOfResources += r.totalResourcesGained(m, c1, c2);
