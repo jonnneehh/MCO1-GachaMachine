@@ -5,13 +5,14 @@ public class Character {
 	private Element element;
 	private int level;
 	private Weapon weapon;
-	private int inventoryIndex;
+	private String uniqueID;
 	
-	public Character(String name, int rarity, Element element, int level) {
+	public Character(String name, int rarity, Element element, int level, String uniqueID) {
 		this.setName(name);
 		this.setRarity(rarity);
 		this.setElement(element);
 		this.setLevel(level);
+		this.setUniqueID(uniqueID);
 	}
 	
 	public int computeTotalCharInfluence() {
@@ -92,11 +93,11 @@ public class Character {
 		this.weapon = weapon;
 	}
 
-	public int getInventoryIndex() {
-		return inventoryIndex;
+	public String getUniqueID() {
+		return uniqueID;
 	}
 
-	public void setInventoryIndex(int inventoryIndex) {
-		this.inventoryIndex = inventoryIndex;
+	public void setUniqueID(String uniqueID) {
+		this.uniqueID = uniqueID;
 	}
 }

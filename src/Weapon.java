@@ -5,13 +5,14 @@ public class Weapon {
 	private int rarity;
 	private int level;
 	private Character characterOwner;
-	private int inventoryIndex;
+	private String uniqueID;
 	
-	public Weapon(String name, int power, int rarity, int level) {
+	public Weapon(String name, int power, int rarity, int level, String uniqueID) {
 		this.setName(name);
 		this.setPower(power);
 		this.setRarity(rarity);
 		this.setLevel(level);
+		this.setUniqueID(uniqueID);
 	}
 	
 	public int computeFinalWeaponPower() {
@@ -58,12 +59,11 @@ public class Weapon {
 		this.characterOwner = character;
 	}
 
-	public int getInventoryIndex() {
-		return inventoryIndex;
+	public String getUniqueID() {
+		return uniqueID;
 	}
 
-	public void setInventoryIndex(int inventoryIndex) {
-		this.inventoryIndex = inventoryIndex;
+	public void setUniqueID(String uniqueID) {
+		this.uniqueID = uniqueID;
 	}
-	
 }

@@ -4,6 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		UserInterface ui = new UserInterface();
 		SystemManager sm = new SystemManager();
+		GachaMachine gc = new GachaMachine();
 		
 		int userChoice = 0;
 		
@@ -40,7 +41,37 @@ public class Main {
 			else if(userChoice == 4) {
 				do {
 					userChoice = ui.showGachaMachine();
-					//System Manages for showGachaMachine
+					//System Managers for showGachaMachine
+					if(userChoice == 1) { //Pull One Character
+						if(sm.getTotalResources() >= 300) {
+							sm.addNewCharacter(gc.pullChar());
+							sm.setTotalResources(sm.getTotalResources() - 300);
+						}
+						else System.out.println("Not enough resouces");
+					}
+					else if(userChoice == 2) { //Pull Ten Characters
+						if(sm.getTotalResources() >= 2700) {
+							for(int i = 0; i < 10; i++)
+								sm.addNewCharacter(gc.pullChar());
+							sm.setTotalResources(sm.getTotalResources() - 2700);
+						}
+						else System.out.println("Not enough resources");
+					}
+					else if(userChoice == 3) { //Pull One Weapon
+						if(sm.getTotalResources() >= 300) {
+							sm.addNewWeapon(gc.pullWeapon());
+							sm.setTotalResources(sm.getTotalResources() - 300);
+						}
+						else System.out.println("Not enough resources");
+					}
+					else if(userChoice == 4) { //Pull Ten Weapons
+						if(sm.getTotalResources() >= 2700) {
+							for(int i = 0; i < 10; i++)
+								sm.addNewWeapon(gc.pullWeapon());
+							sm.setTotalResources(sm.getTotalResources() - 2700);
+						}
+						else System.out.println("Not enough resources");
+					}
 				}while(userChoice != 5);	
 				userChoice = 0;
 			}

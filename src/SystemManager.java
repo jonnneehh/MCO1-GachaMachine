@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class SystemManager {
@@ -7,6 +10,18 @@ public class SystemManager {
 	
 	public void startProgram() {
 		//The items in this method will be temporary...
+	}
+	
+	private String uniqueIDGenerator() {
+		LocalDate ld = LocalDate.now();
+		LocalTime lt = LocalTime.now();
+		
+		DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("ddMMyyyy");
+		DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("HHmmssSSS");
+		
+		String ID = ld.format(formatterDate) + lt.format(formatterTime);
+		
+		return ID;
 	}
 	
 	public void levelUp(Weapon w) {
@@ -24,9 +39,8 @@ public class SystemManager {
 				mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
 			mainW.setRarity(mainW.getRarity() + 1);
 			
-			//ADD CODE: Access Weapon List and remove w2 and w3 from it.
-			weaponList.remove(w2.getInventoryIndex());
-			weaponList.remove(w3.getInventoryIndex());
+			weaponList.remove(w2);
+			weaponList.remove(w3);
 		}
 	}
 	
@@ -35,9 +49,8 @@ public class SystemManager {
 				mainC.getRarity() == c2.getRarity() && mainC.getRarity() == c3.getRarity()) {
 			mainC.setRarity(mainC.getRarity() + 1);
 			
-			//ADD CODE: Access Weapon List and remove c2 and c3 from it.
-			characterList.remove(c2.getInventoryIndex());
-			characterList.remove(c3.getInventoryIndex());
+			characterList.remove(c2);
+			characterList.remove(c3);
 		}
 	}
 	
@@ -59,37 +72,22 @@ public class SystemManager {
 		this.totalResources = totalResources;
 	}
 	
-	public void addNewCharacter(String name, int rarity, Element element, int level) {
-		Character c = new Character(name, rarity, element, level);
+	public void addNewCharacter(Character c) {
+		c.setUniqueID(this.uniqueIDGenerator());
 		characterList.add(c);
-		c.setInventoryIndex(characterList.indexOf(c)); //THIS WILL RESULT INTO PROBLEMS WITH DUPLICATE ITEMS.
 	}
-	
-	//another version
-	public Character addNewCharacter(int index) {
-		Character c = characterList.get(index);
-		return c;	
-	}
-	
 	
 	public void removeCharacter(Character c) {
-		characterList.remove(c); //THIS WILL RESULT INTO PROBLEMS WITH DUPLICATE ITEMS.
+		characterList.remove(c);
 	}
 	
-	public void addNewWeapon(String name, int power, int rarity, int level) {
-		Weapon w = new Weapon(name, power, rarity, level);
+	public void addNewWeapon(Weapon w) {
+		w.setUniqueID(this.uniqueIDGenerator());
 		weaponList.add(w);
-		w.setInventoryIndex(weaponList.indexOf(w)); //THIS WILL RESULT INTO PROBLEMS WITH DUPLICATE ITEMS.
-	}
-	
-	//another version
-	public Weapon addNewWeapon(int index) {
-		Weapon w = weaponList.get(index);
-		return w;	
 	}
 	
 	public void removeWeapon(Weapon w) {
-		characterList.remove(w); //THIS WILL RESULT INTO PROBLEMS WITH DUPLICATE ITEMS.
+		weaponList.remove(w);
 	}
 	
 	public int startAdventure(Character c, Map m, Resources r, int numOfResources) {
