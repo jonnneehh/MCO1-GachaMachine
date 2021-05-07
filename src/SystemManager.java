@@ -65,6 +65,13 @@ public class SystemManager {
 		c.setInventoryIndex(characterList.indexOf(c)); //THIS WILL RESULT INTO PROBLEMS WITH DUPLICATE ITEMS.
 	}
 	
+	//another version
+	public Character addNewCharacter(int index) {
+		Character c = characterList.get(index);
+		return c;	
+	}
+	
+	
 	public void removeCharacter(Character c) {
 		characterList.remove(c); //THIS WILL RESULT INTO PROBLEMS WITH DUPLICATE ITEMS.
 	}
@@ -73,6 +80,12 @@ public class SystemManager {
 		Weapon w = new Weapon(name, power, rarity, level);
 		weaponList.add(w);
 		w.setInventoryIndex(weaponList.indexOf(w)); //THIS WILL RESULT INTO PROBLEMS WITH DUPLICATE ITEMS.
+	}
+	
+	//another version
+	public Weapon addNewWeapon(int index) {
+		Weapon w = weaponList.get(index);
+		return w;	
 	}
 	
 	public void removeWeapon(Weapon w) {
@@ -95,10 +108,6 @@ public class SystemManager {
 		else if(success == 0) {
 			//successfully completed
 			c.setLevel(c.getLevel() + 1);
-		}
-		else {
-			//check what sir says
-			
 		}
 		
 		return numOfResources += r.totalResourcesGained(m, c);
@@ -123,10 +132,6 @@ public class SystemManager {
 			//successfully completed
 			c1.setLevel(c1.getLevel() + 1);
 			c2.setLevel(c2.getLevel() + 1);
-		}
-		else {
-			//check what sir says
-			
 		}
 		
 		return numOfResources += r.totalResourcesGained(m, c1, c2);
