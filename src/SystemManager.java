@@ -2,9 +2,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SystemManager {
-	private int totalResources;
+	private int totalResources = 5000;
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 	
@@ -17,9 +18,9 @@ public class SystemManager {
 		LocalTime lt = LocalTime.now();
 		
 		DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("ddMMyyyy");
-		DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("HHmmssSSS");
+		DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("ssSSSSS");
 		
-		String ID = ld.format(formatterDate) + lt.format(formatterTime);
+		String ID = ld.format(formatterDate) + lt.format(formatterTime) + (new Random().nextInt(900) + 100);
 		
 		return ID;
 	}

@@ -12,34 +12,61 @@ public class Main {
 		sm.startProgram();
 		
 		while(userChoice != 5) {
+			userChoice = 0;
+			ui.showMenuTitle(userChoice);
+			System.out.println("Total Resources: " + sm.getTotalResources());
 			userChoice = ui.showMainMenu();
-			
+						
 			if(userChoice == 1) {
 				do{
-					userChoice = ui.showAllCharacters();
+					userChoice = 1;
+					ui.showMenuTitle(userChoice);
+					System.out.println("Total Resources: " + sm.getTotalResources());
+					
+					ui.headOfCharacterInfo();
+					for(int i = 0; i < sm.characterList.size(); i++)
+						ui.displayCharacterInfo(sm.characterList.get(i));
+					
+					userChoice = ui.showCharacterMenu();
+					
 					//System Managers for showAllCharacters
+					if(userChoice == 1) { //Level Up Characters
+						
+					}
+					else if(userChoice == 2) { //Merge Characters
+						
+					}
+					else if(userChoice == 3) { //Equip Weapon to Character
+						
+					}
 				}while(userChoice != 4);
-				userChoice = 0;
 			}
 				
 			else if(userChoice == 2) {
 				do{
-					userChoice = ui.showAllWeapons();
+					userChoice = 2;
+					ui.showMenuTitle(userChoice);
+					System.out.println("Total Resources: " + sm.getTotalResources());
+					userChoice = ui.showWeaponMenu();
 					//System Managers for showAllWeapons
 				}while(userChoice != 4);
-				userChoice = 0;
 			}
 			
 			else if(userChoice == 3) {
 				do{
+					userChoice = 3;
+					ui.showMenuTitle(userChoice);
+					System.out.println("Total Resources: " + sm.getTotalResources());
 					userChoice = ui.showMaps();
 					//System Managers for showMaps
 				}while(userChoice != 2);
-				userChoice = 0;
 			}
 			
 			else if(userChoice == 4) {
 				do {
+					userChoice = 4;
+					ui.showMenuTitle(userChoice);
+					System.out.println("Total Resources: " + sm.getTotalResources());
 					userChoice = ui.showGachaMachine();
 					//System Managers for showGachaMachine
 					if(userChoice == 1) { //Pull One Character
