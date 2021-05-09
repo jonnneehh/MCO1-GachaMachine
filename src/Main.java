@@ -38,11 +38,13 @@ public class Main {
 								 sm.characterList.get(ui.selectCharacter()));
 					}
 					else if(userChoice == 3) { //Equip Weapon to Character
+						int CharacterSelected = ui.selectCharacter();
+						
 						ui.headOfWeaponInfo();
 						for(int i = 0; i < sm.weaponList.size() ; i++)
 							ui.displayWeaponInfo(sm.weaponList.get(i), i);
 						
-						sm.equipWeapon(sm.characterList.get(ui.selectCharacter()), sm.weaponList.get(ui.selectWeapon()));
+						sm.equipWeapon(sm.characterList.get(CharacterSelected), sm.weaponList.get(ui.selectWeapon()));
 					}
 				}while(userChoice != 4);
 			}
@@ -59,6 +61,22 @@ public class Main {
 					
 					userChoice = ui.showWeaponMenu();
 					//System Managers for showAllWeapons
+					if(userChoice == 1) { //Level up Weapon
+						sm.levelUp(sm.weaponList.get(ui.selectWeapon()));
+					}
+					else if(userChoice == 2) { //Merge Weapons
+						sm.merge(sm.weaponList.get(ui.selectWeapon()), sm.weaponList.get(ui.selectWeapon()), 
+								 sm.weaponList.get(ui.selectWeapon()));
+					}
+					else if (userChoice == 3){ //Equip Weapon to Character
+						int WeaponSelected = ui.selectWeapon();
+						
+						ui.headOfCharacterInfo();
+						for(int i = 0; i < sm.characterList.size(); i++)
+							ui.displayCharacterInfo(sm.characterList.get(i), i);
+						
+						sm.equipWeapon(sm.characterList.get(ui.selectCharacter()), sm.weaponList.get(WeaponSelected));
+					}
 				}while(userChoice != 4);
 			}
 			
