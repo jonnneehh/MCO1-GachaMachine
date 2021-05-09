@@ -8,6 +8,7 @@ public class SystemManager {
 	private int totalResources = 5000;
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
+	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
 	
 	public void startProgram() {
 		//The items in this method will be temporary...
@@ -134,6 +135,58 @@ public class SystemManager {
 		}
 		
 		return numOfResources += r.totalResourcesGained(m, c1, c2);
+		
+	}
+	
+	public void inputDefaultMapList() {
+		Enemy Slime = new Enemy("Slime", 73);
+		Enemy Orc = new Enemy("Orc", 84);
+		Enemy Familiar = new Enemy("Familiar", 144);
+		Enemy Faerie = new Enemy("Faerie", 175);
+		Enemy Elf = new Enemy("Elf", 224);
+		Enemy Sorcerer = new Enemy("Sorcerer", 313);
+		Enemy Hydra = new Enemy("Hydra", 360);
+		Enemy Basilisk = new Enemy("Basilisk", 499);
+		Enemy Harpy = new Enemy("Harpy", 639);
+		Enemy Loki = new Enemy("Loki", 740);
+		
+		ArrayList<Enemy> enemyList1 = new ArrayList<Enemy>();
+		
+		enemyList1.add(Elf);
+		for(int i = 0; i < 6; i++) enemyList1.add(Slime);
+		
+		ArrayList<Enemy> enemyList2 = new ArrayList<Enemy>();
+		
+		for(int i = 0; i < 5; i++) enemyList2.add(Slime);
+		for(int i = 0; i < 5; i++) enemyList2.add(Orc);
+		for(int i = 0; i < 3; i++) enemyList2.add(Familiar);
+		for(int i = 0; i < 3; i++) enemyList2.add(Faerie);
+		for(int i = 0; i < 2; i++) enemyList2.add(Elf);
+		enemyList2.add(Sorcerer);
+		
+		ArrayList<Enemy> enemyList3 = new ArrayList<Enemy>();
+		
+		for(int i = 0; i < 75; i++) enemyList3.add(Slime);
+		for(int i = 0; i < 20; i++) enemyList3.add(Sorcerer);
+		for(int i = 0; i < 5; i++) enemyList3.add(Hydra);
+		
+		ArrayList<Enemy> enemyList4 = new ArrayList<Enemy>();
+		
+		for(int i = 0; i < 20; i++) enemyList4.add(Basilisk);
+		for(int i = 0; i < 7; i++) enemyList4.add(Harpy);
+		for(int i = 0; i < 5; i++) enemyList4.add(Loki);
+		
+		ArrayList<Enemy> enemyList5 = new ArrayList<Enemy>();
+		
+		for(int i = 0; i < 50; i++) enemyList5.add(Faerie);
+		for(int i = 0; i < 20; i++) enemyList5.add(Hydra);
+		for(int i = 0; i < 10; i++) enemyList5.add(Loki);
+		
+		defaultMapList.add(new Map("Underground Caverns", 53, enemyList1));
+		defaultMapList.add(new Map("Forest of Enchantments", 77, enemyList2));
+		defaultMapList.add(new Map("Sea of Hope", 85, enemyList3));
+		defaultMapList.add(new Map("Tower of Ether", 91, enemyList4));
+		defaultMapList.add(new Map("Celestial Plane", 100, enemyList5));
 		
 	}
 }

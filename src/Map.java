@@ -25,16 +25,13 @@ public class Map {
 	 }
 	 
 	 public int computeEnemySuperiority() {
-		 int sum = 0;
-		 Enemy enemy = new Enemy();
-		 
-		 for(int i = 0; i < this.enemyList.size(); i++) {
-			 enemy = this.enemyList.get(i);
-			 sum += enemy.getPower();
-		 }
-		 
-		 return sum;
-	 }
+         int sum = 0;
+
+         for(int i = 0; i < this.enemyList.size(); i++)
+             sum += this.enemyList.get(i).getPower();        
+
+         return sum;
+     }
 	 
 	 public int computeSuccess(int characterSuperiority, int enemySuperiority) {
 		 if(characterSuperiority >= enemySuperiority * 1.5) {
