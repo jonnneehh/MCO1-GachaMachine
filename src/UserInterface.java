@@ -96,22 +96,35 @@ public class UserInterface {
 	
 	public void headOfCharacterInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + 
-						   String.format("%-10s", "Element") + String.format("%-7s", "Level"));
+						   String.format("%-10s", "Element") + String.format("%-7s", "Level") + 
+						   String.format("%-15s", "Weapon Equipped"));
 	}
 	
 	public void displayCharacterInfo(Character c, int characterIndex) {
+		String WeaponEquipped;
+		
+		if (c.getWeapon() == null) WeaponEquipped = "None";
+		else WeaponEquipped = c.getWeapon().getName();
+		
 		System.out.println(String.format("%-7s", characterIndex) + String.format("%-20s",c.getName()) + String.format("%-7s", String.valueOf(c.getRarity())) + 
-						   String.format("%-10s", c.getElement().getName()) + String.format("%-7s", String.valueOf(c.getLevel())));
+						   String.format("%-10s", c.getElement().getName()) + String.format("%-7s", String.valueOf(c.getLevel())) + 
+						   String.format("%-15s", WeaponEquipped));
 	}
 	
 	public void headOfWeaponInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + 
-						   String.format("%-10s", "Power") + String.format("%-7s", "Level"));
+						   String.format("%-10s", "Power") + String.format("%-7s", "Level") + String.format("%-15s", "Character Owner"));
 	}
 	
 	public void displayWeaponInfo(Weapon w, int weaponIndex) {
+		String CharacterOwner;
+		
+		if (w.getCharacterOwner() == null) CharacterOwner = "None";
+		else CharacterOwner = w.getCharacterOwner().getName();
+		
 		System.out.println(String.format("%-7s", weaponIndex) + String.format("%-20s",w.getName()) + String.format("%-7s", String.valueOf(w.getRarity())) + 
-				   		   String.format("%-10s", String.valueOf(w.getPower())) + String.format("%-7s", String.valueOf(w.getLevel())));
+				   		   String.format("%-10s", String.valueOf(w.getPower())) + String.format("%-7s", String.valueOf(w.getLevel())) +
+				   		   String.format("%-15s", CharacterOwner));
 	}
 	
 	public void headOfMapInfo() {
