@@ -70,11 +70,33 @@ public class Main {
 					userChoice = ui.showMaps();
 					//System Managers for showMaps
 					if(userChoice == 1) { //Start Adventure
+						
 						ui.headOfMapInfo();
 						for(int i = 0; i < sm.defaultMapList.size(); i++)
 							ui.displayMapInfo(sm.defaultMapList.get(i), i);
-					
+						int mapIndex = ui.selectMap();
+						userChoice = ui.howManyCharacter();
+								
+						if(userChoice == 1) { //One Character Adventure
+							ui.headOfCharacterInfo();
+							for(int i = 0; i < sm.characterList.size(); i++)
+								ui.displayCharacterInfo(sm.characterList.get(i), i);
+									
+							sm.startAdventure(sm.characterList.get(ui.selectCharacter()), 
+											  sm.defaultMapList.get(mapIndex));
+						}
+						else if(userChoice == 2) { //Two Characters Adventure
+							ui.headOfCharacterInfo();
+							for(int i = 0; i < sm.characterList.size(); i++)
+								ui.displayCharacterInfo(sm.characterList.get(i), i);
+									
+							sm.startAdventure(sm.characterList.get(ui.selectCharacter()), 
+											  sm.characterList.get(ui.selectCharacter()), 
+											  sm.defaultMapList.get(mapIndex));
+						}
+										
 					}
+					userChoice = 0;
 				}while(userChoice != 2);
 			}
 			

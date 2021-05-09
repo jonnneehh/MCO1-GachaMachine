@@ -85,6 +85,15 @@ public class UserInterface {
 		return this.userChoice;
 	}
 	
+	public int howManyCharacter(){
+		System.out.println("1: One Character");
+		System.out.println("2: Two Characters");
+		System.out.print("Enter your choice here: ");
+		this.userChoice = scanner.nextInt();
+		
+		return this.userChoice;
+	}
+	
 	public void headOfCharacterInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + 
 						   String.format("%-10s", "Element") + String.format("%-7s", "Level"));

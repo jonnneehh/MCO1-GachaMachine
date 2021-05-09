@@ -16,11 +16,24 @@ public class Map {
 	
 	//Methods
 	 public int computeCharacterSuperiority(Character c) {
-		 return c.getWeapon().computeFinalWeaponPower() * (c.computeTotalCharInfluence() / 10);
+		 int finalWeaponPower = 1;
+		 
+		 if(c.getWeapon() != null)
+			 finalWeaponPower = c.getWeapon().computeFinalWeaponPower();
+		 
+		 return finalWeaponPower * (c.computeTotalCharInfluence() / 10);
 	 }
 	 
 	 public int computeCharacterSuperiority(Character c1, Character c2) {
-		 return (c1.getWeapon().computeFinalWeaponPower() * (c1.computeTotalCharInfluence() / 10)) + (c2.getWeapon().computeFinalWeaponPower() * (c2.computeTotalCharInfluence() / 10));
+		 int finalWeaponPower1 = 1;
+		 int finalWeaponPower2 = 1;
+		 
+		 if(c1.getWeapon() != null)
+			 finalWeaponPower1 = c1.getWeapon().computeFinalWeaponPower();
+		 if(c2.getWeapon() != null)
+			 finalWeaponPower2 = c2.getWeapon().computeFinalWeaponPower();
+		 
+		 return (finalWeaponPower1 * (c1.computeTotalCharInfluence() / 10)) + (finalWeaponPower2 * (c2.computeTotalCharInfluence() / 10));
 
 	 }
 	 

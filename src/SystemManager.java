@@ -110,7 +110,7 @@ public class SystemManager {
 		weaponList.remove(w);
 	}
 	
-	public int startAdventure(Character c, Map m, Resources r, int numOfResources) {
+	public void startAdventure(Character c, Map m) {
 		int enemySuperiority = 0;
 		int characterSuperiority = 0;
 		int success = 0;
@@ -122,17 +122,19 @@ public class SystemManager {
 		if(success == 1) {
 			//excellently completed
 			c.setLevel(c.getLevel() + 2);
+			System.out.println("Excellently Completed!");
 		}
 		else if(success == 0) {
 			//successfully completed
 			c.setLevel(c.getLevel() + 1);
+			System.out.println("Successfully Completed!");
 		}
-		
-		return numOfResources += r.totalResourcesGained(m, c);
-		
+		else {
+			System.out.println("Map Completed");
+		}
 	}
 	
-	public int startAdventure(Character c1, Character c2, Map m, Resources r, int numOfResources) {
+	public void startAdventure(Character c1, Character c2, Map m) {
 		int enemySuperiority = 0;
 		int characterSuperiority = 0;
 		int success = 0;
@@ -145,14 +147,17 @@ public class SystemManager {
 			//excellently completed
 			c1.setLevel(c1.getLevel() + 2);
 			c2.setLevel(c2.getLevel() + 2);
+			System.out.println("Excellently Completed!");
 		}
 		else if(success == 0) {
 			//successfully completed
 			c1.setLevel(c1.getLevel() + 1);
 			c2.setLevel(c2.getLevel() + 1);
+			System.out.println("Successfully Completed!");
 		}
-		
-		return numOfResources += r.totalResourcesGained(m, c1, c2);
+		else {
+			System.out.println("Map Completed");
+		}
 		
 	}
 	

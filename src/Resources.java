@@ -3,8 +3,7 @@ public class Resources {
 	//Variables
 	private String resourceType;
 	
-	
-	//Methods
+	//methods
 	public int totalResourcesGained(Map m, Character c) {
 		return m.getMapBaseAmount() + (c.getWeapon().computeFinalWeaponPower() / 24) * 
 				(c.computeTotalCharInfluence() / 36);
