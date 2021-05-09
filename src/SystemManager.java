@@ -11,6 +11,22 @@ public class SystemManager {
 	
 	public void startProgram() {
 		//The items in this method will be temporary...
+		Element Joker = new Element("Joker");
+		Character c1 = new Character("Jekyll", 1, Joker, 20, null);
+		Character c2 = new Character("Jekyll", 1, Joker, 20, null);
+		Character c3 = new Character("Jekyll", 1, Joker, 20, null);
+		
+		Weapon w1 = new Weapon("Knife", 130, 1, 1, null);
+		Weapon w2 = new Weapon("Knife", 130, 1, 1, null);
+		Weapon w3 = new Weapon("Knife", 130, 1, 1, null);
+		
+		this.addNewCharacter(c1);
+		this.addNewCharacter(c2);
+		this.addNewCharacter(c3);
+		
+		this.addNewWeapon(w1);
+		this.addNewWeapon(w2);
+		this.addNewWeapon(w3);
 	}
 	
 	private String uniqueIDGenerator() {

@@ -86,23 +86,61 @@ public class UserInterface {
 	}
 	
 	public void headOfCharacterInfo() {
-		System.out.println(String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + String.format("%-10s", "Element") + 
-						   String.format("%-7s", "Level"));
+		System.out.println(String.format("%-7s", "Index") + String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + 
+						   String.format("%-10s", "Element") + String.format("%-7s", "Level"));
 	}
 	
-	public void displayCharacterInfo(Character c) {
-		System.out.println(String.format("%-20s",c.getName()) + String.format("%-7s", String.valueOf(c.getRarity())) + 
+	public void displayCharacterInfo(Character c, int characterIndex) {
+		System.out.println(String.format("%-7s", characterIndex) + String.format("%-20s",c.getName()) + String.format("%-7s", String.valueOf(c.getRarity())) + 
 						   String.format("%-10s", c.getElement().getName()) + String.format("%-7s", String.valueOf(c.getLevel())));
 	}
 	
 	public void headOfWeaponInfo() {
-		System.out.println(String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + String.format("%-10s", "Power") + 
-						   String.format("%-7s", "Level"));
+		System.out.println(String.format("%-7s", "Index") + String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + 
+						   String.format("%-10s", "Power") + String.format("%-7s", "Level"));
 	}
 	
-	public void displayWeaponInfo(Weapon w) {
-		System.out.println(String.format("%-20s",w.getName()) + String.format("%-7s", String.valueOf(w.getRarity())) + 
+	public void displayWeaponInfo(Weapon w, int weaponIndex) {
+		System.out.println(String.format("%-7s", weaponIndex) + String.format("%-20s",w.getName()) + String.format("%-7s", String.valueOf(w.getRarity())) + 
 				   		   String.format("%-10s", String.valueOf(w.getPower())) + String.format("%-7s", String.valueOf(w.getLevel())));
+	}
+	
+	public void headOfMapInfo() {
+		System.out.println(String.format("%-7s", "Index") + String.format("%-40s", "Name"));
+	}
+	
+	public void displayMapInfo(Map m, int mapIndex) {
+		System.out.println(String.format("%-7s", mapIndex) + String.format("%-40s", m.getName()));
+	}
+	
+	public int selectMap() {
+		int indexChosen;
+		
+		System.out.print("Please select a map: ");
+		indexChosen = scanner.nextInt();
+		
+		System.out.println("");
+		return indexChosen;
+	}
+	
+	public int selectWeapon() {
+		int indexChosen;
+		
+		System.out.print("Please select a weapon: ");
+		indexChosen = scanner.nextInt();
+		
+		System.out.println("");
+		return indexChosen;
+	}
+	
+	public int selectCharacter() {
+		int indexChosen;
+		
+		System.out.print("Please select a character: ");
+		indexChosen = scanner.nextInt();
+		
+		System.out.println("");
+		return indexChosen;
 	}
 	
 	public void exitProgram() {

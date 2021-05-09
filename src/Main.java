@@ -25,19 +25,24 @@ public class Main {
 					
 					ui.headOfCharacterInfo();
 					for(int i = 0; i < sm.characterList.size(); i++)
-						ui.displayCharacterInfo(sm.characterList.get(i));
+						ui.displayCharacterInfo(sm.characterList.get(i), i);
 					
 					userChoice = ui.showCharacterMenu();
 					
 					//System Managers for showAllCharacters
 					if(userChoice == 1) { //Level Up Characters
-						
+						sm.levelUp(sm.characterList.get(ui.selectCharacter()));
 					}
 					else if(userChoice == 2) { //Merge Characters
-						
+						sm.merge(sm.characterList.get(ui.selectCharacter()), sm.characterList.get(ui.selectCharacter()), 
+								 sm.characterList.get(ui.selectCharacter()));
 					}
 					else if(userChoice == 3) { //Equip Weapon to Character
+						ui.headOfWeaponInfo();
+						for(int i = 0; i < sm.weaponList.size() ; i++)
+							ui.displayWeaponInfo(sm.weaponList.get(i), i);
 						
+						sm.equipWeapon(sm.characterList.get(ui.selectCharacter()), sm.weaponList.get(ui.selectWeapon()));
 					}
 				}while(userChoice != 4);
 			}
@@ -47,6 +52,11 @@ public class Main {
 					userChoice = 2;
 					ui.showMenuTitle(userChoice);
 					System.out.println("Total Resources: " + sm.getTotalResources());
+					
+					ui.headOfWeaponInfo();
+					for(int i = 0; i < sm.weaponList.size() ; i++)
+						ui.displayWeaponInfo(sm.weaponList.get(i), i);
+					
 					userChoice = ui.showWeaponMenu();
 					//System Managers for showAllWeapons
 				}while(userChoice != 4);
