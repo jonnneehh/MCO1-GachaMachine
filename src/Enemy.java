@@ -6,10 +6,6 @@ public class Enemy {
 	
 		
 	//Constructors
-	public Enemy() {
-		
-	}
-	
 	public Enemy(String name, int power) {
 		this.setName(name);
 		this.setPower(power);
