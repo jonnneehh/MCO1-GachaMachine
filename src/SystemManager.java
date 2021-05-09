@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class SystemManager {
-	private int totalResources = 5000;
+	private Resources r = new Resources("Default", 5000);
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
@@ -46,12 +46,12 @@ public class SystemManager {
 	
 	public void levelUp(Weapon w) {
 		w.setLevel(w.getLevel() + 1);
-		this.setTotalResources(this.getTotalResources() - 1);
+		this.r.setAmount(this.r.getAmount() - 1);
 	}
 	
 	public void levelUp(Character c) {
 		c.setLevel(c.getLevel() + 1);
-		this.setTotalResources(this.getTotalResources() - 1);
+		this.r.setAmount(this.r.getAmount() - 1);
 	}
 	
 	public void merge(Weapon mainW, Weapon w2, Weapon w3) {
@@ -83,14 +83,6 @@ public class SystemManager {
 		c.setWeapon(null);
 		w.setCharacterOwner(null);
 	}
-
-	public int getTotalResources() {
-		return totalResources;
-	}
-
-	public void setTotalResources(int totalResources) {
-		this.totalResources = totalResources;
-	}
 	
 	public void addNewCharacter(Character c) {
 		c.setUniqueID(this.uniqueIDGenerator());
@@ -119,6 +111,9 @@ public class SystemManager {
 		enemySuperiority = m.computeEnemySuperiority();
 		success = m.computeSuccess(characterSuperiority, enemySuperiority);
 		
+		System.out.println(String.valueOf(characterSuperiority));
+		System.out.println(String.valueOf(enemySuperiority));
+		
 		if(success == 1) {
 			//excellently completed
 			c.setLevel(c.getLevel() + 2);
@@ -132,6 +127,8 @@ public class SystemManager {
 		else {
 			System.out.println("Map Completed");
 		}
+		
+		this.r.setAmount(this.r.getAmount() + Math.round(this.r.totalResourcesGained(m, c)));
 	}
 	
 	public void startAdventure(Character c1, Character c2, Map m) {
@@ -142,6 +139,9 @@ public class SystemManager {
 		characterSuperiority = m.computeCharacterSuperiority(c1, c2);
 		enemySuperiority = m.computeEnemySuperiority();
 		success = m.computeSuccess(characterSuperiority, enemySuperiority);
+		
+		System.out.println(String.valueOf(characterSuperiority));
+		System.out.println(String.valueOf(enemySuperiority));
 		
 		if(success == 1) {
 			//excellently completed
@@ -159,6 +159,7 @@ public class SystemManager {
 			System.out.println("Map Completed");
 		}
 		
+		this.r.setAmount(this.r.getAmount() + Math.round(this.r.totalResourcesGained(m, c1, c2)));
 	}
 	
 	public void inputDefaultMapList() {
@@ -212,4 +213,13 @@ public class SystemManager {
 		defaultMapList.add(new Map("Celestial Plane", 100, enemyList5));
 		
 	}
+	
+	public Resources getR() {
+		return r;
+	}
+
+	public void setR(Resources r) {
+		this.r = r;
+	}
+	
 }

@@ -14,14 +14,14 @@ public class Main {
 		while(userChoice != 5) {
 			userChoice = 0;
 			ui.showMenuTitle(userChoice);
-			System.out.println("Total Resources: " + sm.getTotalResources());
+			System.out.println("Total Resources: " + sm.getR().getAmount());
 			userChoice = ui.showMainMenu();
 						
 			if(userChoice == 1) {
 				do{
 					userChoice = 1;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getTotalResources());
+					System.out.println("Total Resources: " + sm.getR().getAmount());
 					
 					ui.headOfCharacterInfo();
 					for(int i = 0; i < sm.characterList.size(); i++)
@@ -53,7 +53,7 @@ public class Main {
 				do{
 					userChoice = 2;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getTotalResources());
+					System.out.println("Total Resources: " + sm.getR().getAmount());
 					
 					ui.headOfWeaponInfo();
 					for(int i = 0; i < sm.weaponList.size() ; i++)
@@ -84,7 +84,7 @@ public class Main {
 				do{
 					userChoice = 3;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getTotalResources());
+					System.out.println("Total Resources: " + sm.getR().getAmount());
 					userChoice = ui.showMaps();
 					//System Managers for showMaps
 					if(userChoice == 1) { //Start Adventure
@@ -112,9 +112,8 @@ public class Main {
 											  sm.characterList.get(ui.selectCharacter()), 
 											  sm.defaultMapList.get(mapIndex));
 						}
-										
+						userChoice = 0;
 					}
-					userChoice = 0;
 				}while(userChoice != 2);
 			}
 			
@@ -122,36 +121,36 @@ public class Main {
 				do {
 					userChoice = 4;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getTotalResources());
+					System.out.println("Total Resources: " + sm.getR().getAmount());
 					userChoice = ui.showGachaMachine();
 					//System Managers for showGachaMachine
 					if(userChoice == 1) { //Pull One Character
-						if(sm.getTotalResources() >= 300) {
+						if(sm.getR().getAmount() >= 300) {
 							sm.addNewCharacter(gc.pullChar());
-							sm.setTotalResources(sm.getTotalResources() - 300);
+							sm.getR().setAmount(sm.getR().getAmount() - 300);
 						}
 						else System.out.println("Not enough resouces");
 					}
 					else if(userChoice == 2) { //Pull Ten Characters
-						if(sm.getTotalResources() >= 2700) {
+						if(sm.getR().getAmount() >= 2700) {
 							for(int i = 0; i < 10; i++)
 								sm.addNewCharacter(gc.pullChar());
-							sm.setTotalResources(sm.getTotalResources() - 2700);
+							sm.getR().setAmount(sm.getR().getAmount() - 2700);
 						}
 						else System.out.println("Not enough resources");
 					}
 					else if(userChoice == 3) { //Pull One Weapon
-						if(sm.getTotalResources() >= 300) {
+						if(sm.getR().getAmount() >= 300) {
 							sm.addNewWeapon(gc.pullWeapon());
-							sm.setTotalResources(sm.getTotalResources() - 300);
+							sm.getR().setAmount(sm.getR().getAmount() - 300);
 						}
 						else System.out.println("Not enough resources");
 					}
 					else if(userChoice == 4) { //Pull Ten Weapons
-						if(sm.getTotalResources() >= 2700) {
+						if(sm.getR().getAmount() >= 2700) {
 							for(int i = 0; i < 10; i++)
 								sm.addNewWeapon(gc.pullWeapon());
-							sm.setTotalResources(sm.getTotalResources() - 2700);
+							sm.getR().setAmount(sm.getR().getAmount() - 2700);
 						}
 						else System.out.println("Not enough resources");
 					}
