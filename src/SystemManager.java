@@ -11,6 +11,8 @@ public class SystemManager {
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
 	
 	public void startProgram() {
+		this.inputDefaultMapList();
+		
 		//The items in this method will be temporary...
 		Element Joker = new Element("Joker");
 		Character c1 = new Character("Jekyll", 1, Joker, 20, null);

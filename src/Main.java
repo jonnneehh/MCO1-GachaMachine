@@ -69,6 +69,12 @@ public class Main {
 					System.out.println("Total Resources: " + sm.getTotalResources());
 					userChoice = ui.showMaps();
 					//System Managers for showMaps
+					if(userChoice == 1) { //Start Adventure
+						ui.headOfMapInfo();
+						for(int i = 0; i < sm.defaultMapList.size(); i++)
+							ui.displayMapInfo(sm.defaultMapList.get(i), i);
+					
+					}
 				}while(userChoice != 2);
 			}
 			
