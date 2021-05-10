@@ -58,6 +58,9 @@ public class Main {
 						weaponSelected = sm.testChoiceWeapon(weaponSelected);
 						
 						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
+						
+						//ui.displayCharacterInfo(sm.characterList.get(characterSelected), characterSelected, true);
+						//ui.displayCharacterInfo(sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected).getWeapon())).getCharacterOwner(), characterSelected, true);
 					}
 				}while(userChoice != 4);
 			}
@@ -80,16 +83,26 @@ public class Main {
 						sm.levelUp(sm.weaponList.get(weaponSelected));
 					}
 					else if(userChoice == 2) { //Merge Weapons
-						int weaponSelected = -1;
+						int weaponSelected1 = -1;
 						int weaponSelected2 = -1;
 						int weaponSelected3 = -1;
 						
-						weaponSelected = sm.testChoiceWeapon(weaponSelected);
-						weaponSelected2 = sm.testChoiceWeapon(weaponSelected);
-						weaponSelected3 = sm.testChoiceWeapon(weaponSelected);
+						weaponSelected1 = sm.testChoiceWeapon(weaponSelected1);
+						weaponSelected2 = sm.testChoiceWeapon(weaponSelected2);
+						weaponSelected3 = sm.testChoiceWeapon(weaponSelected3);
 						
-						sm.merge(sm.weaponList.get(weaponSelected), sm.weaponList.get(weaponSelected2), 
+						/*
+						System.out.println(weaponSelected2 + " and " + weaponSelected3);
+						
+						sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected2).getCharacterOwner())), 
+										 sm.weaponList.get(weaponSelected2));
+						
+						sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected3).getCharacterOwner())), 
+										 sm.weaponList.get(weaponSelected3));
+						*/
+						sm.merge(sm.weaponList.get(weaponSelected1), sm.weaponList.get(weaponSelected2), 
 								 sm.weaponList.get(weaponSelected3));
+						
 					}
 					else if (userChoice == 3){ //Equip Weapon to Character
 						int weaponSelected = -1;

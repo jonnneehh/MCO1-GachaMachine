@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class SystemManager {
-	private Resources r = new Resources("Default", 50000);
+	private Resources r = new Resources("Default", 1000);
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
@@ -13,7 +13,8 @@ public class SystemManager {
 	public void startProgram() {
 		this.inputDefaultMapList();
 		
-		//The items in this method will be temporary...
+		/*
+		//The items in this part will be temporary...
 		Element Joker = new Element("Joker");
 		Character c1 = new Character("Jekyll", 1, Joker, 20, null);
 		Character c2 = new Character("Jekyll", 1, Joker, 20, null);
@@ -30,6 +31,7 @@ public class SystemManager {
 		this.addNewWeapon(w1);
 		this.addNewWeapon(w2);
 		this.addNewWeapon(w3);
+		*/
 	}
 	
 	private String uniqueIDGenerator() {
@@ -161,8 +163,8 @@ public class SystemManager {
 		enemySuperiority = m.computeEnemySuperiority();
 		success = m.computeSuccess(characterSuperiority, enemySuperiority);
 		
-		System.out.println(String.valueOf(characterSuperiority));
-		System.out.println(String.valueOf(enemySuperiority));
+		//System.out.println(String.valueOf(characterSuperiority));
+		//System.out.println(String.valueOf(enemySuperiority));
 		
 		if(success == 1) {
 			//excellently completed
@@ -187,7 +189,7 @@ public class SystemManager {
 		this.r.setAmount(this.r.getAmount() + Math.round(this.r.totalResourcesGained(m, c1, c2)));
 	}
 	
-	public void inputDefaultMapList() {
+	private void inputDefaultMapList() {
 		Enemy Slime = new Enemy("Slime", 73);
 		Enemy Orc = new Enemy("Orc", 84);
 		Enemy Familiar = new Enemy("Familiar", 144);
