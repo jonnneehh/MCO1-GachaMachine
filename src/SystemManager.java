@@ -15,13 +15,13 @@ public class SystemManager {
 		
 		//The items in this method will be temporary...
 		Element Joker = new Element("Joker");
-		Character c1 = new Character("Jekyll", 5, Joker, 20, null);
-		Character c2 = new Character("Jekyll", 5, Joker, 20, null);
-		Character c3 = new Character("Jekyll", 5, Joker, 20, null);
+		Character c1 = new Character("Jekyll", 5, Joker, 100, null);
+		Character c2 = new Character("Jekyll", 5, Joker, 100, null);
+		Character c3 = new Character("Jekyll", 5, Joker, 100, null);
 		
-		Weapon w1 = new Weapon("Knife", 130, 1, 1, null);
-		Weapon w2 = new Weapon("Knife", 130, 1, 1, null);
-		Weapon w3 = new Weapon("Knife", 130, 1, 1, null);
+		Weapon w1 = new Weapon("Knife", 130, 5, 50, null);
+		Weapon w2 = new Weapon("Knife", 130, 5, 50, null);
+		Weapon w3 = new Weapon("Knife", 130, 5, 50, null);
 		
 		this.addNewCharacter(c1);
 		this.addNewCharacter(c2);
@@ -45,33 +45,43 @@ public class SystemManager {
 	}
 	
 	public void levelUp(Weapon w) {
-		w.setLevel(w.getLevel() + 1);
-		this.r.setAmount(this.r.getAmount() - 1);
+		if(w.getLevel() < 50) {
+			w.setLevel(w.getLevel() + 1);
+			this.r.setAmount(this.r.getAmount() - 1);
+		}
+		else System.out.println("Maximum level reached!");
 	}
 	
 	public void levelUp(Character c) {
-		c.setLevel(c.getLevel() + 1);
-		this.r.setAmount(this.r.getAmount() - 1);
+		if(c.getLevel() < 100) {
+			c.setLevel(c.getLevel() + 1);
+			this.r.setAmount(this.r.getAmount() - 1);
+		}
+		else System.out.println("Maximum level reached!");
 	}
 	
 	public void merge(Weapon mainW, Weapon w2, Weapon w3) {
-		if(mainW.getName() == w2.getName() && mainW.getName() == w3.getName() &&
-				mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
-			mainW.setRarity(mainW.getRarity() + 1);
-			
-			this.weaponList.remove(w2);
-			this.weaponList.remove(w3);
+		if(mainW.getRarity() < 5 && mainW != w2 && mainW != w3 && w2 != w3) {
+			if(mainW.getName() == w2.getName() && mainW.getName() == w3.getName() &&
+					mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
+				mainW.setRarity(mainW.getRarity() + 1);
+				
+				this.weaponList.remove(w2);
+				this.weaponList.remove(w3);
+			}
 		}
 	}
 	
 	public void merge(Character mainC, Character c2, Character c3) {
-		if(mainC.getName() == c2.getName() && mainC.getName() == c3.getName() &&
-		   mainC.getRarity() == c2.getRarity() && mainC.getRarity() == c3.getRarity()) {
-		    
-			mainC.setRarity(mainC.getRarity() + 1);
-			
-			this.characterList.remove(c2);
-			this.characterList.remove(c3);
+		if(mainC.getRarity() < 5 && mainC != c2 && mainC != c3 && c2 != c3) {
+			if(mainC.getName() == c2.getName() && mainC.getName() == c3.getName() &&
+			   mainC.getRarity() == c2.getRarity() && mainC.getRarity() == c3.getRarity()) {
+					    
+				mainC.setRarity(mainC.getRarity() + 1);
+						
+				this.characterList.remove(c2);
+				this.characterList.remove(c3);
+			}
 		}
 	}
 	
@@ -121,12 +131,14 @@ public class SystemManager {
 		
 		if(success == 1) {
 			//excellently completed
-			c.setLevel(c.getLevel() + 2);
+			if(c.getLevel() < 99) c.setLevel(c.getLevel() + 2);
+			else if(c.getLevel() == 99) c.setLevel(c.getLevel() + 1);
+			
 			System.out.println("Excellently Completed!");
 		}
 		else if(success == 0) {
 			//successfully completed
-			c.setLevel(c.getLevel() + 1);
+			if(c.getLevel() < 100) c.setLevel(c.getLevel() + 1);
 			System.out.println("Successfully Completed!");
 		}
 		else {
@@ -150,14 +162,18 @@ public class SystemManager {
 		
 		if(success == 1) {
 			//excellently completed
-			c1.setLevel(c1.getLevel() + 2);
-			c2.setLevel(c2.getLevel() + 2);
+			if(c1.getLevel() < 99) c1.setLevel(c1.getLevel() + 2);
+			else if(c1.getLevel() == 99) c1.setLevel(c1.getLevel() + 1);
+			
+			if(c2.getLevel() < 99) c2.setLevel(c2.getLevel() + 2);
+			else if(c2.getLevel() == 99) c2.setLevel(c2.getLevel() + 1);
+			
 			System.out.println("Excellently Completed!");
 		}
 		else if(success == 0) {
 			//successfully completed
-			c1.setLevel(c1.getLevel() + 1);
-			c2.setLevel(c2.getLevel() + 1);
+			if(c1.getLevel() < 100) c1.setLevel(c1.getLevel() + 1);
+			if(c2.getLevel() < 100) c2.setLevel(c2.getLevel() + 1);
 			System.out.println("Successfully Completed!");
 		}
 		else {
