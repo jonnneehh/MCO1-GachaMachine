@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class SystemManager {
-	private Resources r = new Resources("Default", 5000);
+	private Resources r = new Resources("Default", 50000);
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
@@ -15,13 +15,13 @@ public class SystemManager {
 		
 		//The items in this method will be temporary...
 		Element Joker = new Element("Joker");
-		Character c1 = new Character("Jekyll", 5, Joker, 100, null);
-		Character c2 = new Character("Jekyll", 5, Joker, 100, null);
-		Character c3 = new Character("Jekyll", 5, Joker, 100, null);
+		Character c1 = new Character("Jekyll", 1, Joker, 20, null);
+		Character c2 = new Character("Jekyll", 1, Joker, 20, null);
+		Character c3 = new Character("Jekyll", 1, Joker, 20, null);
 		
-		Weapon w1 = new Weapon("Knife", 130, 5, 50, null);
-		Weapon w2 = new Weapon("Knife", 130, 5, 50, null);
-		Weapon w3 = new Weapon("Knife", 130, 5, 50, null);
+		Weapon w1 = new Weapon("Knife", 130, 1, 1, null);
+		Weapon w2 = new Weapon("Knife", 130, 1, 1, null);
+		Weapon w3 = new Weapon("Knife", 130, 1, 1, null);
 		
 		this.addNewCharacter(c1);
 		this.addNewCharacter(c2);
@@ -61,7 +61,7 @@ public class SystemManager {
 	}
 	
 	public void merge(Weapon mainW, Weapon w2, Weapon w3) {
-		if(mainW.getRarity() < 5 && mainW != w2 && mainW != w3 && w2 != w3) {
+		if(mainW.getRarity() < 5 && mainW.getUniqueID() != w2.getUniqueID() && mainW.getUniqueID() != w3.getUniqueID() && w2.getUniqueID() != w3.getUniqueID()) {
 			if(mainW.getName() == w2.getName() && mainW.getName() == w3.getName() &&
 					mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
 				mainW.setRarity(mainW.getRarity() + 1);
@@ -73,7 +73,7 @@ public class SystemManager {
 	}
 	
 	public void merge(Character mainC, Character c2, Character c3) {
-		if(mainC.getRarity() < 5 && mainC != c2 && mainC != c3 && c2 != c3) {
+		if(mainC.getRarity() < 5 && mainC.getUniqueID() != c2.getUniqueID() && mainC.getUniqueID() != c3.getUniqueID() && c2.getUniqueID() != c3.getUniqueID()) {
 			if(mainC.getName() == c2.getName() && mainC.getName() == c3.getName() &&
 			   mainC.getRarity() == c2.getRarity() && mainC.getRarity() == c3.getRarity()) {
 					    
@@ -96,13 +96,16 @@ public class SystemManager {
 	}
 	
 	public void addNewCharacter(Character c) {
-		c.setUniqueID(this.uniqueIDGenerator());
+		String uniqueID = this.uniqueIDGenerator();
+		
+		c.setUniqueID(uniqueID);
 		this.characterList.add(c);
 	}
 	
 	public void removeCharacter(Character c) {
-		this.unequipWeapon(this.characterList.get(this.characterList.indexOf(c)), 
-						   this.weaponList.get(this.weaponList.indexOf(c.getWeapon())));
+		this.characterList.get(this.characterList.indexOf(c)).setWeapon(null);
+		this.weaponList.get(this.weaponList.indexOf(c.getWeapon())).setCharacterOwner(null);
+
 		this.characterList.remove(c);
 	}
 	
@@ -112,8 +115,9 @@ public class SystemManager {
 	}
 	
 	public void removeWeapon(Weapon w) {
-		this.unequipWeapon(this.characterList.get(this.characterList.indexOf(w.getCharacterOwner())), 
-						   this.weaponList.get(this.weaponList.indexOf(w)));
+		this.characterList.get(this.characterList.indexOf(w.getCharacterOwner())).setWeapon(null);; 
+		this.weaponList.get(this.weaponList.indexOf(w)).setCharacterOwner(null);
+		
 		this.weaponList.remove(w);
 	}
 	
