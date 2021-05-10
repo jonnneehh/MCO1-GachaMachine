@@ -43,7 +43,7 @@ public class UserInterface {
 		return this.userChoice;
 	}
 	
-	public int showCharacterMenu(/*Character characterList[]*/) {
+	public int showCharacterMenu() {
 		System.out.println("1: Level Up Characters");
 		System.out.println("2: Merge Characters");
 		System.out.println("3: Equip Weapon to Character");
@@ -54,7 +54,7 @@ public class UserInterface {
 		return this.userChoice;
 	}
 	
-	public int showWeaponMenu(/*Weapon weaponList[]*/) {
+	public int showWeaponMenu() {
 		System.out.println("1: Level Up Weapons");
 		System.out.println("2: Merge Two Weapons");
 		System.out.println("3: Equip Weapon to Character");
@@ -65,7 +65,7 @@ public class UserInterface {
 		return this.userChoice;
 	}
 	
-	public int showMaps(/*Map mapList[]*/) {
+	public int showMaps() {
 		System.out.println("1: Start Adventure");
 		System.out.println("2: Back to Main Menu");
 		System.out.print("Enter your choice here: ");
