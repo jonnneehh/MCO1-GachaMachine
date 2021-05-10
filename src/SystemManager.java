@@ -15,9 +15,9 @@ public class SystemManager {
 		
 		//The items in this method will be temporary...
 		Element Joker = new Element("Joker");
-		Character c1 = new Character("Jekyll", 1, Joker, 20, null);
-		Character c2 = new Character("Jekyll", 1, Joker, 20, null);
-		Character c3 = new Character("Jekyll", 1, Joker, 20, null);
+		Character c1 = new Character("Jekyll", 5, Joker, 20, null);
+		Character c2 = new Character("Jekyll", 5, Joker, 20, null);
+		Character c3 = new Character("Jekyll", 5, Joker, 20, null);
 		
 		Weapon w1 = new Weapon("Knife", 130, 1, 1, null);
 		Weapon w2 = new Weapon("Knife", 130, 1, 1, null);
@@ -37,7 +37,7 @@ public class SystemManager {
 		LocalTime lt = LocalTime.now();
 		
 		DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("ddMMyyyy");
-		DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("ssSSSSS");
+		DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("sSSSnnnnn");
 		
 		String ID = ld.format(formatterDate) + lt.format(formatterTime) + (new Random().nextInt(900) + 100);
 		
@@ -59,18 +59,19 @@ public class SystemManager {
 				mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
 			mainW.setRarity(mainW.getRarity() + 1);
 			
-			weaponList.remove(w2);
-			weaponList.remove(w3);
+			this.weaponList.remove(w2);
+			this.weaponList.remove(w3);
 		}
 	}
 	
 	public void merge(Character mainC, Character c2, Character c3) {
 		if(mainC.getName() == c2.getName() && mainC.getName() == c3.getName() &&
-				mainC.getRarity() == c2.getRarity() && mainC.getRarity() == c3.getRarity()) {
+		   mainC.getRarity() == c2.getRarity() && mainC.getRarity() == c3.getRarity()) {
+		    
 			mainC.setRarity(mainC.getRarity() + 1);
 			
-			characterList.remove(c2);
-			characterList.remove(c3);
+			this.characterList.remove(c2);
+			this.characterList.remove(c3);
 		}
 	}
 	
@@ -86,22 +87,24 @@ public class SystemManager {
 	
 	public void addNewCharacter(Character c) {
 		c.setUniqueID(this.uniqueIDGenerator());
-		characterList.add(c);
+		this.characterList.add(c);
 	}
 	
 	public void removeCharacter(Character c) {
-		this.unequipWeapon(c, c.getWeapon());
-		characterList.remove(c);
+		this.unequipWeapon(this.characterList.get(this.characterList.indexOf(c)), 
+						   this.weaponList.get(this.weaponList.indexOf(c.getWeapon())));
+		this.characterList.remove(c);
 	}
 	
 	public void addNewWeapon(Weapon w) {
 		w.setUniqueID(this.uniqueIDGenerator());
-		weaponList.add(w);
+		this.weaponList.add(w);
 	}
 	
 	public void removeWeapon(Weapon w) {
-		this.unequipWeapon(w.getCharacterOwner(), w);
-		weaponList.remove(w);
+		this.unequipWeapon(this.characterList.get(this.characterList.indexOf(w.getCharacterOwner())), 
+						   this.weaponList.get(this.weaponList.indexOf(w)));
+		this.weaponList.remove(w);
 	}
 	
 	public void startAdventure(Character c, Map m) {

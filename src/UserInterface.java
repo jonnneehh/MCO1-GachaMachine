@@ -112,6 +112,18 @@ public class UserInterface {
 						   String.format("%-15s", WeaponEquipped));
 	}
 	
+	//THIS IS A TEMORARY METHOD FOR TESTING
+	private void displayCharacterInfo(Character c, int characterIndex, boolean showUniqueID) { 
+		String WeaponEquipped;
+		
+		if (c.getWeapon() == null) WeaponEquipped = "None";
+		else WeaponEquipped = c.getWeapon().getName();
+		
+		System.out.println(String.format("%-7s", characterIndex) + String.format("%-30s",c.getName()) + String.format("%-7s", String.valueOf(c.getRarity())) + 
+						   String.format("%-10s", c.getElement().getName()) + String.format("%-7s", String.valueOf(c.getLevel())) + 
+						   String.format("%-15s", WeaponEquipped) + String.format("%-20s", c.getUniqueID()));
+	}
+	
 	private void headOfWeaponInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-30s", "Name") + String.format("%-7s", "Rarity") + 
 						   String.format("%-10s", "Power") + String.format("%-7s", "Level") + String.format("%-15s", "Character Owner"));
@@ -145,7 +157,7 @@ public class UserInterface {
 	public void displayAllCharacters(ArrayList<Character> characterList) {
 		this.headOfCharacterInfo();
 		for(int i = 0; i < characterList.size() ; i++)
-			this.displayCharacterInfo(characterList.get(i), i);
+			this.displayCharacterInfo(characterList.get(i), i, true);
 	}
 	
 	public void displayAllMaps(ArrayList<Map> mapList) {
