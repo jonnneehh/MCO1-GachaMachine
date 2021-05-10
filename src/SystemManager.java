@@ -219,6 +219,27 @@ public class SystemManager {
 		
 	}
 	
+	public int testChoiceWeapon(int choice) {
+		UserInterface ui = new UserInterface();
+		
+		do {
+			choice = ui.selectWeapon();
+		}while(choice >= weaponList.size() || choice < 0);
+		
+		return choice;
+	}
+	
+	public int testChoiceCharacter(int choice) {
+		UserInterface ui = new UserInterface();
+		
+		do {
+			choice = ui.selectCharacter();
+		}while(choice >= characterList.size() || choice < 0);
+		
+		return choice;
+	}
+	
+	
 	public Resources getR() {
 		return r;
 	}

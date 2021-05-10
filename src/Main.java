@@ -29,24 +29,35 @@ public class Main {
 					
 					//System Managers for showAllCharacters
 					if(userChoice == 1) { //Level Up Characters
-						int characterSelected;
+						int characterSelected = -1;
 						
-						do {
-							characterSelected = ui.selectCharacter();
-						}while(characterSelected >= sm.characterList.size() || characterSelected < 0);
+						characterSelected = sm.testChoiceCharacter(characterSelected);
 						
 						sm.levelUp(sm.characterList.get(characterSelected));
 					}
 					else if(userChoice == 2) { //Merge Characters
-						sm.merge(sm.characterList.get(ui.selectCharacter()), sm.characterList.get(ui.selectCharacter()), 
-								 sm.characterList.get(ui.selectCharacter()));
+						int characterSelected1 = -1;
+						int characterSelected2 = -1;
+						int characterSelected3 = -1;
+						
+						characterSelected1 = sm.testChoiceCharacter(characterSelected1);
+						characterSelected2 = sm.testChoiceCharacter(characterSelected2);
+						characterSelected3 = sm.testChoiceCharacter(characterSelected3);
+						
+						sm.merge(sm.characterList.get(characterSelected1), sm.characterList.get(characterSelected2), 
+								 sm.characterList.get(characterSelected3));
 					}
 					else if(userChoice == 3) { //Equip Weapon to Character
-						int CharacterSelected = ui.selectCharacter();
+						int characterSelected = -1;
+						int weaponSelected = -1;
+						
+						characterSelected = sm.testChoiceCharacter(characterSelected);
 						
 						ui.displayAllWeapons(sm.weaponList);
 						
-						sm.equipWeapon(sm.characterList.get(CharacterSelected), sm.weaponList.get(ui.selectWeapon()));
+						weaponSelected = sm.testChoiceWeapon(weaponSelected);
+						
+						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 					}
 				}while(userChoice != 4);
 			}
@@ -62,18 +73,35 @@ public class Main {
 					userChoice = ui.showWeaponMenu();
 					//System Managers for showAllWeapons
 					if(userChoice == 1) { //Level up Weapon
-						sm.levelUp(sm.weaponList.get(ui.selectWeapon()));
+						int weaponSelected = -1;
+						
+						weaponSelected = sm.testChoiceWeapon(weaponSelected);
+						
+						sm.levelUp(sm.weaponList.get(weaponSelected));
 					}
 					else if(userChoice == 2) { //Merge Weapons
-						sm.merge(sm.weaponList.get(ui.selectWeapon()), sm.weaponList.get(ui.selectWeapon()), 
-								 sm.weaponList.get(ui.selectWeapon()));
+						int weaponSelected = -1;
+						int weaponSelected2 = -1;
+						int weaponSelected3 = -1;
+						
+						weaponSelected = sm.testChoiceWeapon(weaponSelected);
+						weaponSelected2 = sm.testChoiceWeapon(weaponSelected);
+						weaponSelected3 = sm.testChoiceWeapon(weaponSelected);
+						
+						sm.merge(sm.weaponList.get(weaponSelected), sm.weaponList.get(weaponSelected2), 
+								 sm.weaponList.get(weaponSelected3));
 					}
 					else if (userChoice == 3){ //Equip Weapon to Character
-						int WeaponSelected = ui.selectWeapon();
+						int weaponSelected = -1;
+						int characterSelected = -1;
+						
+						weaponSelected = sm.testChoiceWeapon(weaponSelected);
 						
 						ui.displayAllCharacters(sm.characterList);
 						
-						sm.equipWeapon(sm.characterList.get(ui.selectCharacter()), sm.weaponList.get(WeaponSelected));
+						characterSelected = sm.testChoiceCharacter(characterSelected);
+						
+						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 					}
 				}while(userChoice != 4);
 			}
@@ -88,23 +116,33 @@ public class Main {
 					if(userChoice == 1) { //Start Adventure
 						
 						ui.displayAllMaps(sm.defaultMapList);
-						int mapIndex = ui.selectMap();
+						int mapIndex;
+						
+						do {
+							mapIndex  = ui.selectMap();
+						}while(mapIndex >= sm.defaultMapList.size() || mapIndex < 0);
+						
 						userChoice = ui.howManyCharacter();
 								
 						if(userChoice == 1) { //One Character Adventure
+							int characterSelected = -1;
 							ui.displayAllCharacters(sm.characterList);
-									
-							sm.startAdventure(sm.characterList.get(ui.selectCharacter()), 
+							
+							characterSelected = sm.testChoiceCharacter(characterSelected);
+							
+							sm.startAdventure(sm.characterList.get(characterSelected), 
 											  sm.defaultMapList.get(mapIndex));
 						}
 						else if(userChoice == 2) { //Two Characters Adventure
 							ui.displayAllCharacters(sm.characterList);
 							
-							int characterSelected1 = ui.selectCharacter();
-							int characterSelected2;
+							int characterSelected1 = -1;
+							int characterSelected2 = -1;
+							
+							characterSelected1 = sm.testChoiceCharacter(characterSelected1);
 							
 							do{
-								characterSelected2 = ui.selectCharacter();
+								characterSelected2 = sm.testChoiceCharacter(characterSelected2);
 							}while(characterSelected2 == characterSelected1);
 							
 							sm.startAdventure(sm.characterList.get(characterSelected1), 
