@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -94,13 +95,13 @@ public class UserInterface {
 		return this.userChoice;
 	}
 	
-	public void headOfCharacterInfo() {
+	private void headOfCharacterInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + 
 						   String.format("%-10s", "Element") + String.format("%-7s", "Level") + 
 						   String.format("%-15s", "Weapon Equipped"));
 	}
 	
-	public void displayCharacterInfo(Character c, int characterIndex) {
+	private void displayCharacterInfo(Character c, int characterIndex) {
 		String WeaponEquipped;
 		
 		if (c.getWeapon() == null) WeaponEquipped = "None";
@@ -111,12 +112,12 @@ public class UserInterface {
 						   String.format("%-15s", WeaponEquipped));
 	}
 	
-	public void headOfWeaponInfo() {
+	private void headOfWeaponInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-20s", "Name") + String.format("%-7s", "Rarity") + 
 						   String.format("%-10s", "Power") + String.format("%-7s", "Level") + String.format("%-15s", "Character Owner"));
 	}
 	
-	public void displayWeaponInfo(Weapon w, int weaponIndex) {
+	private void displayWeaponInfo(Weapon w, int weaponIndex) {
 		String CharacterOwner;
 		
 		if (w.getCharacterOwner() == null) CharacterOwner = "None";
@@ -127,12 +128,30 @@ public class UserInterface {
 				   		   String.format("%-15s", CharacterOwner));
 	}
 	
-	public void headOfMapInfo() {
+	private void headOfMapInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-40s", "Name"));
 	}
 	
-	public void displayMapInfo(Map m, int mapIndex) {
+	private void displayMapInfo(Map m, int mapIndex) {
 		System.out.println(String.format("%-7s", mapIndex) + String.format("%-40s", m.getName()));
+	}
+	
+	public void displayAllWeapons(ArrayList<Weapon> weaponList) {
+		this.headOfWeaponInfo();
+		for(int i = 0; i < weaponList.size() ; i++)
+			this.displayWeaponInfo(weaponList.get(i), i);
+	}
+	
+	public void displayAllCharacters(ArrayList<Character> characterList) {
+		this.headOfCharacterInfo();
+		for(int i = 0; i < characterList.size() ; i++)
+			this.displayCharacterInfo(characterList.get(i), i);
+	}
+	
+	public void displayAllMaps(ArrayList<Map> mapList) {
+		this.headOfMapInfo();
+		for(int i = 0; i < mapList.size() ; i++)
+			this.displayMapInfo(mapList.get(i), i);
 	}
 	
 	public int selectMap() {
@@ -167,7 +186,7 @@ public class UserInterface {
 	
 	public void exitProgram() {
 		System.out.println("Exiting Program...");
-		/* Some code to put here when the time comes.
+		/* Some code to put here maybe when the time comes.
 		 * */
 	}
 }

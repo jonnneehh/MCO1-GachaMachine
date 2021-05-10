@@ -90,6 +90,7 @@ public class SystemManager {
 	}
 	
 	public void removeCharacter(Character c) {
+		this.unequipWeapon(c, c.getWeapon());
 		characterList.remove(c);
 	}
 	
@@ -99,6 +100,7 @@ public class SystemManager {
 	}
 	
 	public void removeWeapon(Weapon w) {
+		this.unequipWeapon(w.getCharacterOwner(), w);
 		weaponList.remove(w);
 	}
 	

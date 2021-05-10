@@ -23,9 +23,7 @@ public class Main {
 					ui.showMenuTitle(userChoice);
 					System.out.println("Total Resources: " + sm.getR().getAmount());
 					
-					ui.headOfCharacterInfo();
-					for(int i = 0; i < sm.characterList.size(); i++)
-						ui.displayCharacterInfo(sm.characterList.get(i), i);
+					ui.displayAllCharacters(sm.characterList);
 					
 					userChoice = ui.showCharacterMenu();
 					
@@ -40,9 +38,7 @@ public class Main {
 					else if(userChoice == 3) { //Equip Weapon to Character
 						int CharacterSelected = ui.selectCharacter();
 						
-						ui.headOfWeaponInfo();
-						for(int i = 0; i < sm.weaponList.size() ; i++)
-							ui.displayWeaponInfo(sm.weaponList.get(i), i);
+						ui.displayAllWeapons(sm.weaponList);
 						
 						sm.equipWeapon(sm.characterList.get(CharacterSelected), sm.weaponList.get(ui.selectWeapon()));
 					}
@@ -55,9 +51,7 @@ public class Main {
 					ui.showMenuTitle(userChoice);
 					System.out.println("Total Resources: " + sm.getR().getAmount());
 					
-					ui.headOfWeaponInfo();
-					for(int i = 0; i < sm.weaponList.size() ; i++)
-						ui.displayWeaponInfo(sm.weaponList.get(i), i);
+					ui.displayAllWeapons(sm.weaponList);
 					
 					userChoice = ui.showWeaponMenu();
 					//System Managers for showAllWeapons
@@ -71,9 +65,7 @@ public class Main {
 					else if (userChoice == 3){ //Equip Weapon to Character
 						int WeaponSelected = ui.selectWeapon();
 						
-						ui.headOfCharacterInfo();
-						for(int i = 0; i < sm.characterList.size(); i++)
-							ui.displayCharacterInfo(sm.characterList.get(i), i);
+						ui.displayAllCharacters(sm.characterList);
 						
 						sm.equipWeapon(sm.characterList.get(ui.selectCharacter()), sm.weaponList.get(WeaponSelected));
 					}
@@ -89,24 +81,18 @@ public class Main {
 					//System Managers for showMaps
 					if(userChoice == 1) { //Start Adventure
 						
-						ui.headOfMapInfo();
-						for(int i = 0; i < sm.defaultMapList.size(); i++)
-							ui.displayMapInfo(sm.defaultMapList.get(i), i);
+						ui.displayAllMaps(sm.defaultMapList);
 						int mapIndex = ui.selectMap();
 						userChoice = ui.howManyCharacter();
 								
 						if(userChoice == 1) { //One Character Adventure
-							ui.headOfCharacterInfo();
-							for(int i = 0; i < sm.characterList.size(); i++)
-								ui.displayCharacterInfo(sm.characterList.get(i), i);
+							ui.displayAllCharacters(sm.characterList);
 									
 							sm.startAdventure(sm.characterList.get(ui.selectCharacter()), 
 											  sm.defaultMapList.get(mapIndex));
 						}
 						else if(userChoice == 2) { //Two Characters Adventure
-							ui.headOfCharacterInfo();
-							for(int i = 0; i < sm.characterList.size(); i++)
-								ui.displayCharacterInfo(sm.characterList.get(i), i);
+							ui.displayAllCharacters(sm.characterList);
 									
 							sm.startAdventure(sm.characterList.get(ui.selectCharacter()), 
 											  sm.characterList.get(ui.selectCharacter()), 
