@@ -44,6 +44,16 @@ public class Main {
 						characterSelected2 = sm.testChoiceCharacter(characterSelected2);
 						characterSelected3 = sm.testChoiceCharacter(characterSelected3);
 						
+						if(sm.characterList.get(characterSelected2).getWeapon() != null) {
+							sm.unequipWeapon(sm.characterList.get(characterSelected2), 
+											 sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected2).getWeapon())));
+						}
+							
+						if(sm.characterList.get(characterSelected3).getWeapon() != null) {
+							sm.unequipWeapon(sm.characterList.get(characterSelected3), 
+											 sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected3).getWeapon())));
+						}
+						
 						sm.merge(sm.characterList.get(characterSelected1), sm.characterList.get(characterSelected2), 
 								 sm.characterList.get(characterSelected3));
 					}
@@ -58,9 +68,6 @@ public class Main {
 						weaponSelected = sm.testChoiceWeapon(weaponSelected);
 						
 						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
-						
-						//ui.displayCharacterInfo(sm.characterList.get(characterSelected), characterSelected, true);
-						//ui.displayCharacterInfo(sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected).getWeapon())).getCharacterOwner(), characterSelected, true);
 					}
 				}while(userChoice != 4);
 			}
@@ -91,15 +98,16 @@ public class Main {
 						weaponSelected2 = sm.testChoiceWeapon(weaponSelected2);
 						weaponSelected3 = sm.testChoiceWeapon(weaponSelected3);
 						
-						/*
-						System.out.println(weaponSelected2 + " and " + weaponSelected3);
-						
-						sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected2).getCharacterOwner())), 
-										 sm.weaponList.get(weaponSelected2));
-						
-						sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected3).getCharacterOwner())), 
-										 sm.weaponList.get(weaponSelected3));
-						*/
+						if(sm.weaponList.get(weaponSelected2).getCharacterOwner() != null) {
+							sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected2).getCharacterOwner())), 
+											 sm.weaponList.get(weaponSelected2));
+						}
+							
+						if(sm.weaponList.get(weaponSelected3).getCharacterOwner() != null) {
+							sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected3).getCharacterOwner())), 
+											 sm.weaponList.get(weaponSelected3));
+						}
+							
 						sm.merge(sm.weaponList.get(weaponSelected1), sm.weaponList.get(weaponSelected2), 
 								 sm.weaponList.get(weaponSelected3));
 						
@@ -127,7 +135,6 @@ public class Main {
 					userChoice = ui.showMaps();
 					//System Managers for showMaps
 					if(userChoice == 1) { //Start Adventure
-						
 						ui.displayAllMaps(sm.defaultMapList);
 						int mapIndex;
 						

@@ -13,7 +13,7 @@ public class SystemManager {
 	public void startProgram() {
 		this.inputDefaultMapList();
 		
-		/*
+		
 		//The items in this part will be temporary...
 		Element Joker = new Element("Joker");
 		Character c1 = new Character("Jekyll", 1, Joker, 20, null);
@@ -31,7 +31,7 @@ public class SystemManager {
 		this.addNewWeapon(w1);
 		this.addNewWeapon(w2);
 		this.addNewWeapon(w3);
-		*/
+		
 	}
 	
 	private String uniqueIDGenerator() {
