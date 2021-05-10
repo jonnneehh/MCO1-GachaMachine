@@ -29,7 +29,13 @@ public class Main {
 					
 					//System Managers for showAllCharacters
 					if(userChoice == 1) { //Level Up Characters
-						sm.levelUp(sm.characterList.get(ui.selectCharacter()));
+						int characterSelected;
+						
+						do {
+							characterSelected = ui.selectCharacter();
+						}while(characterSelected >= sm.characterList.size() || characterSelected < 0);
+						
+						sm.levelUp(sm.characterList.get(characterSelected));
 					}
 					else if(userChoice == 2) { //Merge Characters
 						sm.merge(sm.characterList.get(ui.selectCharacter()), sm.characterList.get(ui.selectCharacter()), 
@@ -93,9 +99,16 @@ public class Main {
 						}
 						else if(userChoice == 2) { //Two Characters Adventure
 							ui.displayAllCharacters(sm.characterList);
-									
-							sm.startAdventure(sm.characterList.get(ui.selectCharacter()), 
-											  sm.characterList.get(ui.selectCharacter()), 
+							
+							int characterSelected1 = ui.selectCharacter();
+							int characterSelected2;
+							
+							do{
+								characterSelected2 = ui.selectCharacter();
+							}while(characterSelected2 == characterSelected1);
+							
+							sm.startAdventure(sm.characterList.get(characterSelected1), 
+											  sm.characterList.get(characterSelected2), 
 											  sm.defaultMapList.get(mapIndex));
 						}
 						userChoice = 0;
