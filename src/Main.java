@@ -28,14 +28,14 @@ public class Main {
 					userChoice = ui.showCharacterMenu();
 					
 					//System Managers for showAllCharacters
-					if(userChoice == 1) { //Level Up Characters
+					if(userChoice == 1 && sm.characterList.size() != 0) { //Level Up Characters
 						int characterSelected = -1;
 						
 						characterSelected = sm.testChoiceCharacter(characterSelected);
 						
 						sm.levelUp(sm.characterList.get(characterSelected));
 					}
-					else if(userChoice == 2) { //Merge Characters
+					else if(userChoice == 2 && sm.characterList.size() >= 3) { //Merge Characters
 						int characterSelected1 = -1;
 						int characterSelected2 = -1;
 						int characterSelected3 = -1;
@@ -47,7 +47,7 @@ public class Main {
 						sm.merge(sm.characterList.get(characterSelected1), sm.characterList.get(characterSelected2), 
 								 sm.characterList.get(characterSelected3));
 					}
-					else if(userChoice == 3) { //Equip Weapon to Character
+					else if(userChoice == 3 && sm.characterList.size() != 0 && sm.weaponList.size() != 0) { //Equip Weapon to Character
 						int characterSelected = -1;
 						int weaponSelected = -1;
 						
@@ -75,14 +75,14 @@ public class Main {
 					
 					userChoice = ui.showWeaponMenu();
 					//System Managers for showAllWeapons
-					if(userChoice == 1) { //Level up Weapon
+					if(userChoice == 1 && sm.weaponList.size() != 0) { //Level up Weapon
 						int weaponSelected = -1;
 						
 						weaponSelected = sm.testChoiceWeapon(weaponSelected);
 						
 						sm.levelUp(sm.weaponList.get(weaponSelected));
 					}
-					else if(userChoice == 2) { //Merge Weapons
+					else if(userChoice == 2 && sm.weaponList.size() >= 3) { //Merge Weapons
 						int weaponSelected1 = -1;
 						int weaponSelected2 = -1;
 						int weaponSelected3 = -1;
@@ -104,7 +104,7 @@ public class Main {
 								 sm.weaponList.get(weaponSelected3));
 						
 					}
-					else if (userChoice == 3){ //Equip Weapon to Character
+					else if (userChoice == 3 && sm.characterList.size() != 0 && sm.weaponList.size() != 0){ //Equip Weapon to Character
 						int weaponSelected = -1;
 						int characterSelected = -1;
 						
@@ -137,7 +137,7 @@ public class Main {
 						
 						userChoice = ui.howManyCharacter();
 								
-						if(userChoice == 1) { //One Character Adventure
+						if(userChoice == 1 && sm.characterList.size() >= 1) { //One Character Adventure
 							int characterSelected = -1;
 							ui.displayAllCharacters(sm.characterList);
 							
@@ -146,7 +146,7 @@ public class Main {
 							sm.startAdventure(sm.characterList.get(characterSelected), 
 											  sm.defaultMapList.get(mapIndex));
 						}
-						else if(userChoice == 2) { //Two Characters Adventure
+						else if(userChoice == 2 && sm.characterList.size() >= 2) { //Two Characters Adventure
 							ui.displayAllCharacters(sm.characterList);
 							
 							int characterSelected1 = -1;
@@ -162,6 +162,7 @@ public class Main {
 											  sm.characterList.get(characterSelected2), 
 											  sm.defaultMapList.get(mapIndex));
 						}
+						else System.out.println("\nAdventure failed. Not enough characters");
 						userChoice = 0;
 					}
 				}while(userChoice != 2);
