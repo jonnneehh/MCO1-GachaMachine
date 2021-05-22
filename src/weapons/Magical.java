@@ -10,7 +10,12 @@ public class Magical extends Weapon{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
+	@Override
+	protected int computeFinalWeaponRarity() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	public int getPower() {
 		return power;
@@ -30,5 +35,8 @@ public class Magical extends Weapon{
 	public void setActualRarity(int actualRarity) {
 		this.actualRarity = actualRarity;
 	}
+
+
+	
 
 }
