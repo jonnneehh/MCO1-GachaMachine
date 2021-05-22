@@ -1,25 +1,13 @@
 package weapons;
 import characters.Character;
 
-public class Weapon {
-	private String name;
-	private int power;
-	private int rarity;
-	private int level;
-	private Character characterOwner;
-	private String uniqueID;
+public abstract class Weapon {
+	protected String name;
+	protected int level;
+	protected Character characterOwner;
+	protected String uniqueID;
 	
-	public Weapon(String name, int power, int rarity, int level, String uniqueID) {
-		this.setName(name);
-		this.setPower(power);
-		this.setRarity(rarity);
-		this.setLevel(level);
-		this.setUniqueID(uniqueID);
-	}
-	
-	public int computeFinalWeaponPower() {
-		return this.power * this.rarity + this.level;
-	}
+	protected abstract int computeFinalWeaponPower();
 	
 	public String getName() {
 		return this.name;
@@ -27,22 +15,6 @@ public class Weapon {
 	
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	public int getPower() {
-		return this.power;
-	}
-	
-	public void setPower(int power) {
-		this.power = power;
-	}
-	
-	public int getRarity() {
-		return this.rarity;
-	}
-	
-	public void setRarity(int rarity) {
-		this.rarity = rarity;
 	}
 	
 	public int getLevel() {
