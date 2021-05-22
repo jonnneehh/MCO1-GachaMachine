@@ -6,8 +6,12 @@ public abstract class Weapon {
 	protected int level;
 	protected Character characterOwner;
 	
-	protected abstract int computeFinalWeaponPower();
-	protected abstract int computeFinalWeaponRarity();
+	abstract public int computeFinalWeaponPower();
+	abstract public int computeFinalWeaponRarity();
+	abstract public int getRarity();
+	abstract public void setRarity(int rarity);
+	abstract public int getPower();
+	abstract public void setPower(int power);
 	
 	public String getName() {
 		return this.name;

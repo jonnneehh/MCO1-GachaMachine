@@ -14,23 +14,37 @@ public class Bladed extends Weapon{
 	}
 	
 	@Override
-	protected int computeFinalWeaponPower() { 
+	public int computeFinalWeaponPower() { 
 		return this.power * this.rarity + (10 * this.rarity);
 	}
 	
 	@Override
-	protected int computeFinalWeaponRarity() {
+	public int computeFinalWeaponRarity() {
 		return this.rarity;
 	}
 	
+	@Override
 	public int getPower() {
 		return power;
 	}
 
+	@Override
 	public void setPower(int power) {
 		this.power = power;
+		
 	}
-
+	
+	@Override
+	public int getRarity() {
+		return rarity;
+	}
+	
+	@Override
+	public void setRarity(int rarity) {
+		this.rarity = rarity;
+		
+	}
+	
 	public boolean isGolden() {
 		return isGolden;
 	}
@@ -38,13 +52,4 @@ public class Bladed extends Weapon{
 	public void setGolden(boolean isGolden) {
 		this.isGolden = isGolden;
 	}
-
-	public int getRarity() {
-		return rarity;
-	}
-
-	public void setRarity(int rarity) {
-		this.rarity = rarity;
-	}
-	
 }

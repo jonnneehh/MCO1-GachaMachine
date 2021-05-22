@@ -1,9 +1,5 @@
 package system;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Random;
 
 import weapons.*;
 import characters.Character;
@@ -20,27 +16,15 @@ public class SystemManager {
 	public void startProgram() {
 		Element Joker = new Element("Joker");
 		
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null)); 
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null));
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null)); 
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20)); 
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20));
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20)); 
 		
-		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false, null));
-		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false, null));
-		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false, null));
+		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
+		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
+		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
 		
 		this.inputDefaultMapList();
-	}
-	
-	private String uniqueIDGenerator() {
-		LocalDate ld = LocalDate.now();
-		LocalTime lt = LocalTime.now();
-		
-		DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("ddMMyyyy");
-		DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("sSSSnnnnn");
-		
-		String ID = ld.format(formatterDate) + lt.format(formatterTime) + (new Random().nextInt(900) + 100);
-		
-		return ID;
 	}
 	
 	public void levelUp(Weapon w) {
@@ -60,7 +44,7 @@ public class SystemManager {
 	}
 	
 	public void merge(Weapon mainW, Weapon w2, Weapon w3) {
-		if(mainW.getRarity() < 5 && mainW.getUniqueID() != w2.getUniqueID() && mainW.getUniqueID() != w3.getUniqueID() && w2.getUniqueID() != w3.getUniqueID()) {
+		if(mainW.getRarity() < 5) {
 			if(mainW.getName() == w2.getName() && mainW.getName() == w3.getName() &&
 					mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
 				mainW.setRarity(mainW.getRarity() + 1);
@@ -72,7 +56,7 @@ public class SystemManager {
 	}
 	
 	public void merge(Character mainC, Character c2, Character c3) {
-		if(mainC.getRarity() < 5 && mainC.getUniqueID() != c2.getUniqueID() && mainC.getUniqueID() != c3.getUniqueID() && c2.getUniqueID() != c3.getUniqueID()) {
+		if(mainC.getRarity() < 5) {
 			if(mainC.getName() == c2.getName() && mainC.getName() == c3.getName() &&
 			   mainC.getRarity() == c2.getRarity() && mainC.getRarity() == c3.getRarity()) {
 					    
@@ -95,9 +79,6 @@ public class SystemManager {
 	}
 	
 	public void addNewCharacter(Character c) {
-		String uniqueID = this.uniqueIDGenerator();
-		
-		c.setUniqueID(uniqueID);
 		this.characterList.add(c);
 	}
 	
@@ -109,7 +90,6 @@ public class SystemManager {
 	}
 	
 	public void addNewWeapon(Weapon w) {
-		w.setUniqueID(this.uniqueIDGenerator());
 		this.weaponList.add(w);
 	}
 	
