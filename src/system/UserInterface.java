@@ -2,7 +2,7 @@ package system;
 import java.util.ArrayList;
 import java.util.Scanner;
 import characters.Character;
-import weapons.Weapon;
+import weapons.*;
 import adventure.Map;
 
 public class UserInterface {
@@ -101,7 +101,7 @@ public class UserInterface {
 	
 	private void headOfCharacterInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-30s", "Name") + String.format("%-7s", "Rarity") + 
-						   String.format("%-10s", "Element") + String.format("%-7s", "Level") + 
+						   String.format("%-10s", "Element") + String.format("%-7s", "Level") +
 						   String.format("%-15s", "Weapon Equipped"));
 	}
 	
@@ -118,18 +118,27 @@ public class UserInterface {
 
 	private void headOfWeaponInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-30s", "Name") + String.format("%-7s", "Rarity") + 
-						   String.format("%-10s", "Power") + String.format("%-7s", "Level") + String.format("%-15s", "Character Owner"));
+						   String.format("%-10s", "Power") + String.format("%-7s", "Level") + String.format("%-15s", "Weapon Type") +
+						   String.format("%-15s", "Character Owner"));
 	}
 	
 	private void displayWeaponInfo(Weapon w, int weaponIndex) {
 		String CharacterOwner;
+		String WeaponType;
 		
 		if (w.getCharacterOwner() == null) CharacterOwner = "None";
 		else CharacterOwner = w.getCharacterOwner().getName();
 		
+		if (w instanceof Magical) WeaponType = "Magical";
+		else if (w instanceof Ranged) WeaponType = "Ranged";
+		else
+			if(((Bladed) w).isGolden()) WeaponType = "Golden";
+			else WeaponType = "Bladed";
+		
+		
 		System.out.println(String.format("%-7s", weaponIndex) + String.format("%-30s",w.getName()) + String.format("%-7s", String.valueOf(w.getRarity())) + 
 				   		   String.format("%-10s", String.valueOf(w.getPower())) + String.format("%-7s", String.valueOf(w.getLevel())) +
-				   		   String.format("%-15s", CharacterOwner));
+				   		   String.format("%-15s", WeaponType) + String.format("%-15s", CharacterOwner));
 	}
 	
 	private void headOfMapInfo() {

@@ -20,9 +20,10 @@ public class SystemManager {
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20));
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20)); 
 		
+		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 2));
 		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
-		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
-		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
+		this.addNewWeapon(new Ranged("Bashosen", 1, 190, 2, 1));
+		this.addNewWeapon(new Bladed("Golden Cudgel", 1, 200, 2, true));
 		
 		this.inputDefaultMapList();
 	}
