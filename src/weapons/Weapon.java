@@ -8,6 +8,7 @@ public abstract class Weapon {
 	protected String uniqueID;
 	
 	protected abstract int computeFinalWeaponPower();
+	protected abstract int computeFinalWeaponRarity();
 	
 	public String getName() {
 		return this.name;
