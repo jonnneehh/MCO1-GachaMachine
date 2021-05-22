@@ -1,7 +1,10 @@
+package gachamachine;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-
+import characters.Element;
+import characters.Character;
+import weapons.*;
 
 public class GachaMachine {
 	private ArrayList<Character> defaultCharacterList = new ArrayList<Character>();

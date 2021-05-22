@@ -1,3 +1,5 @@
+package system;
+import gachamachine.GachaMachine;
 
 public class Main {
 
@@ -67,6 +69,16 @@ public class Main {
 						
 						weaponSelected = sm.testChoiceWeapon(weaponSelected);
 						
+						if(sm.weaponList.get(weaponSelected).getCharacterOwner() != null) {
+							sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected).getCharacterOwner())), 
+									 sm.weaponList.get(weaponSelected));
+						}
+						
+						if(sm.characterList.get(characterSelected).getWeapon() != null) {
+							sm.unequipWeapon(sm.characterList.get(characterSelected), 
+									 		 sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected).getWeapon())));
+						}
+						
 						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 					}
 				}while(userChoice != 4);
@@ -121,6 +133,16 @@ public class Main {
 						ui.displayAllCharacters(sm.characterList);
 						
 						characterSelected = sm.testChoiceCharacter(characterSelected);
+						
+						if(sm.characterList.get(characterSelected).getWeapon() != null) {
+							sm.unequipWeapon(sm.characterList.get(characterSelected), 
+									 		 sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected).getWeapon())));
+						}
+						
+						if(sm.weaponList.get(weaponSelected).getCharacterOwner() != null) {
+							sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected).getCharacterOwner())), 
+									 sm.weaponList.get(weaponSelected));
+						}
 						
 						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 					}

@@ -1,37 +1,33 @@
+package system;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Random;
+import weapons.Weapon;
+import characters.Character;
+import characters.Element;
+import adventure.Map;
+import adventure.Enemy;
 
 public class SystemManager {
-	private Resources r = new Resources("Default", 1000);
+	private Resources r = new Resources("Default", 16450);
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
 	
 	public void startProgram() {
-		this.inputDefaultMapList();
-		
-		
-		//The items in this part will be temporary...
 		Element Joker = new Element("Joker");
-		Character c1 = new Character("Jekyll", 1, Joker, 20, null);
-		Character c2 = new Character("Jekyll", 1, Joker, 20, null);
-		Character c3 = new Character("Jekyll", 1, Joker, 20, null);
 		
-		Weapon w1 = new Weapon("Knife", 130, 1, 1, null);
-		Weapon w2 = new Weapon("Knife", 130, 1, 1, null);
-		Weapon w3 = new Weapon("Knife", 130, 1, 1, null);
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null)); 
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null));
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null)); 
 		
-		this.addNewCharacter(c1);
-		this.addNewCharacter(c2);
-		this.addNewCharacter(c3);
+		this.addNewWeapon(new Weapon("Knife", 130, 1, 1, null));
+		this.addNewWeapon(new Weapon("Knife", 130, 1, 1, null));
+		this.addNewWeapon(new Weapon("Knife", 130, 1, 1, null));
 		
-		this.addNewWeapon(w1);
-		this.addNewWeapon(w2);
-		this.addNewWeapon(w3);
-		
+		this.inputDefaultMapList();
 	}
 	
 	private String uniqueIDGenerator() {

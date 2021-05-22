@@ -1,5 +1,6 @@
+package adventure;
 import java.util.ArrayList;
-
+import characters.Character;
 
 public class Map {
 	//Variables

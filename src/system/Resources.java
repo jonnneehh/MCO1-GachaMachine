@@ -1,3 +1,6 @@
+package system;
+import characters.Character;
+import adventure.Map;
 
 public class Resources {
 	//Variables

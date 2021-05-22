@@ -1,3 +1,5 @@
+package characters;
+import weapons.Weapon;
 
 public class Character {
 	private String name;

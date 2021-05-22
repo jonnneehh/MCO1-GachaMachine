@@ -1,3 +1,4 @@
+package characters;
 
 public class Element {
 	private String name;

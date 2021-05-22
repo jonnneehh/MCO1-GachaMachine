@@ -1,5 +1,9 @@
+package system;
 import java.util.ArrayList;
 import java.util.Scanner;
+import characters.Character;
+import weapons.Weapon;
+import adventure.Map;
 
 public class UserInterface {
 	private Scanner scanner = new Scanner(System.in);
@@ -111,20 +115,7 @@ public class UserInterface {
 						   String.format("%-10s", c.getElement().getName()) + String.format("%-7s", String.valueOf(c.getLevel())) + 
 						   String.format("%-15s", WeaponEquipped));
 	}
-	
-	/*
-	//THIS IS A TEMORARY METHOD FOR TESTING
-	public void displayCharacterInfo(Character c, int characterIndex, boolean showUniqueID) { 
-		String WeaponEquipped;
-		
-		if (c.getWeapon() == null) WeaponEquipped = "None";
-		else WeaponEquipped = c.getWeapon().getName();
-		
-		System.out.println(String.format("%-7s", characterIndex) + String.format("%-30s",c.getName()) + String.format("%-7s", String.valueOf(c.getRarity())) + 
-						   String.format("%-10s", c.getElement().getName()) + String.format("%-7s", String.valueOf(c.getLevel())) + 
-						   String.format("%-15s", WeaponEquipped) + String.format("%-20s", c.getUniqueID()));
-	}
-	*/
+
 	private void headOfWeaponInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-30s", "Name") + String.format("%-7s", "Rarity") + 
 						   String.format("%-10s", "Power") + String.format("%-7s", "Level") + String.format("%-15s", "Character Owner"));
