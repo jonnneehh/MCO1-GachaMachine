@@ -9,7 +9,6 @@ public class Magical extends Weapon{
 		this.level = level;
 		this.power = power;
 		this.rarity = rarity;
-		this.characterOwner = characterOwner;
 	}
 	
 	@Override

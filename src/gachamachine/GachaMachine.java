@@ -47,28 +47,28 @@ public class GachaMachine {
 	
 	private void inputDefaultWeapons() {
 		//Rarity 1 Weapons
-		defaultWeaponList.add(new Weapon("Knife", 130, 1, 1, null));
-		defaultWeaponList.add(new Weapon("Rapier", 140, 1, 1, null));
-		defaultWeaponList.add(new Weapon("Revolver", 150, 1, 1, null));
-		defaultWeaponList.add(new Weapon("Mermaid Tears", 160, 1, 1, null));
-		defaultWeaponList.add(new Weapon("Clarent", 170, 1, 1, null));
-		defaultWeaponList.add(new Weapon("English Longbow", 180, 1, 1, null));
+		defaultWeaponList.add(new Bladed("Knife", 1, 130, 1, false));
+		defaultWeaponList.add(new Bladed("Rapier", 1, 140, 1, false));
+		defaultWeaponList.add(new Ranged("Revolver", 1, 150, 1, 1));
+		defaultWeaponList.add(new Magical("Mermaid Tears", 1, 160, 1));
+		defaultWeaponList.add(new Bladed("Clarent", 1, 170, 1, false));
+		defaultWeaponList.add(new Ranged("English Longbow", 1, 180, 1, 1));
 		
 		//Rarity 2 Weapons
-		defaultWeaponList.add(new Weapon("Circe Staff", 150, 2, 1, null));
-		defaultWeaponList.add(new Weapon("Vorpal sword", 160, 2, 1, null));
-		defaultWeaponList.add(new Weapon("Merlin’s Staff", 170, 2, 1, null));
-		defaultWeaponList.add(new Weapon("Five-cross Sword", 180, 2, 1, null));
-		defaultWeaponList.add(new Weapon("Bashosen", 190, 2, 1, null));
-		defaultWeaponList.add(new Weapon("Golden Cudgel", 200, 2, 1, null));
+		defaultWeaponList.add(new Magical("Circe Staff", 1, 150, 2));
+		defaultWeaponList.add(new Magical("Vorpal sword", 1, 160, 2));
+		defaultWeaponList.add(new Magical("Merlin’s Staff", 1, 170, 2));
+		defaultWeaponList.add(new Bladed("Five-cross Sword", 1, 180, 2, false));
+		defaultWeaponList.add(new Ranged("Bashosen", 1, 190, 2, 1));
+		defaultWeaponList.add(new Bladed("Golden Cudgel", 1, 200, 2, true));
 		
 		//Rarity 3 Weapons
-		defaultWeaponList.add(new Weapon("Philosopher’s stone", 180, 3, 1, null));
-		defaultWeaponList.add(new Weapon("Magic Bullets", 190, 3, 1, null));
-		defaultWeaponList.add(new Weapon("Fragarach", 200, 3, 1, null));
-		defaultWeaponList.add(new Weapon("Honjo Masamune", 210, 3, 1, null));
-		defaultWeaponList.add(new Weapon("Excalibur", 220, 3, 1, null));
-		defaultWeaponList.add(new Weapon("Scythe of Father Time", 230, 3, 1, null));
+		defaultWeaponList.add(new Magical("Philosopher’s stone", 1, 180, 3));
+		defaultWeaponList.add(new Ranged("Magic Bullets", 1, 190, 3, 1));
+		defaultWeaponList.add(new Bladed("Fragarach", 1, 200, 3, false));
+		defaultWeaponList.add(new Bladed("Honjo Masamune", 1, 210, 3, false));
+		defaultWeaponList.add(new Bladed("Excalibur", 1, 220, 3, false));
+		defaultWeaponList.add(new Bladed("Scythe of Father Time", 1, 230, 2, true));
 	}
 	
 	public Character pullChar(){
