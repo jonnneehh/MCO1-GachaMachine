@@ -113,7 +113,7 @@ public class SystemManager {
 		
 		//System.out.println(String.valueOf(characterSuperiority));
 		//System.out.println(String.valueOf(enemySuperiority));
-		
+		    
 		if(success == 1) {
 			//excellently completed
 			if(c.getLevel() < 99) c.setLevel(c.getLevel() + 2);
