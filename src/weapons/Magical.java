@@ -9,34 +9,37 @@ public class Magical extends Weapon{
 		this.level = level;
 		this.power = power;
 		this.rarity = rarity;
-		this.characterOwner = characterOwner;
 	}
 	
 	@Override
-	protected int computeFinalWeaponPower() {
+	public int computeFinalWeaponPower() {
 		return this.power * this.rarity;
 	}
 	
 	@Override
-	protected int computeFinalWeaponRarity() {
+	public int computeFinalWeaponRarity() {
 		return this.rarity + 1;
 	}
 	
+	@Override
 	public int getPower() {
 		return power;
 	}
+
+	@Override
 	public void setPower(int power) {
 		this.power = power;
+		
 	}
-
+	
+	@Override
 	public int getRarity() {
 		return rarity;
 	}
+	
+	@Override
 	public void setRarity(int rarity) {
 		this.rarity = rarity;
+		
 	}
-
-
-	
-
 }

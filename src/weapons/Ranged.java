@@ -14,36 +14,42 @@ public class Ranged extends Weapon{
 	}
 	
 	@Override
-	protected int computeFinalWeaponPower() {
+	public int computeFinalWeaponPower() {
 		return this.power * this.rarity * this.criticalDamage;
 	}
 
 	@Override
-	protected int computeFinalWeaponRarity() {
+	public int computeFinalWeaponRarity() {
 		return this.rarity;
 	}
+	
+	@Override
+	public int getPower() {
+		return power;
+	}
 
+	@Override
+	public void setPower(int power) {
+		this.power = power;
+		
+	}
+	
+	@Override
+	public int getRarity() {
+		return rarity;
+	}
+	
+	@Override
+	public void setRarity(int rarity) {
+		this.rarity = rarity;
+		
+	}
+	
 	public int getCriticalDamage() {
 		return criticalDamage;
 	}
 
 	public void setCriticalDamage(int criticalDamage) {
 		this.criticalDamage = criticalDamage;
-	}
-	
-	public int getPower() {
-		return power;
-	}
-
-	public void setPower(int power) {
-		this.power = power;
-	}
-
-	public int getRarity() {
-		return rarity;
-	}
-
-	public void setRarity(int rarity) {
-		this.rarity = rarity;
 	}
 }
