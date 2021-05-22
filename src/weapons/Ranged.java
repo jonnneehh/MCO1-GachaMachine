@@ -3,9 +3,9 @@ package weapons;
 public class Ranged extends Weapon{
 	private int power;
 	private int rarity;
-	private int criticalDamage;
+	private double criticalDamage;
 	
-	public Ranged(String name, int level, int power, int rarity, int criticalDamage) {
+	public Ranged(String name, int level, int power, int rarity, double criticalDamage) {
 		this.name = name;
 		this.level = level;
 		this.power = power;
@@ -15,7 +15,7 @@ public class Ranged extends Weapon{
 	
 	@Override
 	public int computeFinalWeaponPower() {
-		return this.power * this.rarity * this.criticalDamage;
+		return (int) Math.round(this.power * this.rarity * this.criticalDamage);
 	}
 
 	@Override
@@ -45,11 +45,11 @@ public class Ranged extends Weapon{
 		
 	}
 	
-	public int getCriticalDamage() {
+	public double getCriticalDamage() {
 		return criticalDamage;
 	}
 
-	public void setCriticalDamage(int criticalDamage) {
+	public void setCriticalDamage(double criticalDamage) {
 		this.criticalDamage = criticalDamage;
 	}
 }
