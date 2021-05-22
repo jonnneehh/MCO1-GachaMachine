@@ -4,6 +4,12 @@ public class Magical extends Weapon{
 	private int power;
 	private int rarity;
 	
+	public Magical(int power, int rarity, characters.Character characterOwner) {
+		this.power = power;
+		this.rarity = rarity;
+		this.characterOwner = characterOwner;
+	}
+	
 	@Override
 	protected int computeFinalWeaponPower() {
 		return this.power * this.rarity;
