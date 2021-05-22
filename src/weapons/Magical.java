@@ -2,15 +2,23 @@ package weapons;
 
 public class Magical extends Weapon{
 	private int power;
-	private int calculatedRarity;
-	private int actualRarity;
+	private int rarity;
+	
+	public Magical(int power, int rarity, characters.Character characterOwner) {
+		this.power = power;
+		this.rarity = rarity;
+		this.characterOwner = characterOwner;
+	}
 	
 	@Override
 	protected int computeFinalWeaponPower() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.power * this.rarity;
 	}
-
+	
+	@Override
+	protected int computeFinalWeaponRarity() {
+		return this.rarity + 1;
+	}
 	
 	public int getPower() {
 		return power;
@@ -18,17 +26,15 @@ public class Magical extends Weapon{
 	public void setPower(int power) {
 		this.power = power;
 	}
-	public int getCalculatedRarity() {
-		return calculatedRarity;
+
+	public int getRarity() {
+		return rarity;
 	}
-	public void setCalculatedRarity(int calculatedRarity) {
-		this.calculatedRarity = calculatedRarity;
+	public void setRarity(int rarity) {
+		this.rarity = rarity;
 	}
-	public int getActualRarity() {
-		return actualRarity;
-	}
-	public void setActualRarity(int actualRarity) {
-		this.actualRarity = actualRarity;
-	}
+
+
+	
 
 }
