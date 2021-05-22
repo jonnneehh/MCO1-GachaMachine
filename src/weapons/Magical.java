@@ -1,10 +1,16 @@
 package weapons;
 
-public class Magical {
+public class Magical extends Weapon{
 	private int power;
 	private int calculatedRarity;
 	private int actualRarity;
 	
+	@Override
+	protected int computeFinalWeaponPower() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	public int getPower() {
 		return power;
