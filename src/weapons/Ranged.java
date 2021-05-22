@@ -5,13 +5,12 @@ public class Ranged extends Weapon{
 	private int rarity;
 	private int criticalDamage;
 	
-	public Ranged(String name, int level, int power, int rarity, int criticalDamage, characters.Character characterOwner) {
+	public Ranged(String name, int level, int power, int rarity, int criticalDamage) {
 		this.name = name;
 		this.level = level;
 		this.power = power;
 		this.rarity = rarity;
 		this.criticalDamage = criticalDamage;
-		this.characterOwner = characterOwner;
 	}
 	
 	@Override

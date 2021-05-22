@@ -5,13 +5,12 @@ public class Bladed extends Weapon{
 	private int rarity;
 	private boolean isGolden;
 	
-	public Bladed(String name, int level, int power, int rarity, boolean isGolden, characters.Character characterOwner) {
+	public Bladed(String name, int level, int power, int rarity, boolean isGolden) {
 		this.name = name;
 		this.level = level;
 		this.power = power;
 		this.rarity = rarity;
 		this.isGolden = isGolden;
-		this.characterOwner = characterOwner;
 	}
 	
 	@Override
