@@ -4,7 +4,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Random;
-import weapons.Weapon;
+
+import weapons.*;
 import characters.Character;
 import characters.Element;
 import adventure.Map;
@@ -23,9 +24,9 @@ public class SystemManager {
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null));
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, null)); 
 		
-		this.addNewWeapon(new Weapon("Knife", 130, 1, 1, null));
-		this.addNewWeapon(new Weapon("Knife", 130, 1, 1, null));
-		this.addNewWeapon(new Weapon("Knife", 130, 1, 1, null));
+		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false, null));
+		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false, null));
+		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false, null));
 		
 		this.inputDefaultMapList();
 	}
