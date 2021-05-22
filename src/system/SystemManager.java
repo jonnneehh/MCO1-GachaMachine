@@ -1,9 +1,5 @@
 package system;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Random;
 
 import weapons.*;
 import characters.Character;
@@ -29,18 +25,6 @@ public class SystemManager {
 		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
 		
 		this.inputDefaultMapList();
-	}
-	
-	private String uniqueIDGenerator() {
-		LocalDate ld = LocalDate.now();
-		LocalTime lt = LocalTime.now();
-		
-		DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("ddMMyyyy");
-		DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("sSSSnnnnn");
-		
-		String ID = ld.format(formatterDate) + lt.format(formatterTime) + (new Random().nextInt(900) + 100);
-		
-		return ID;
 	}
 	
 	public void levelUp(Weapon w) {
