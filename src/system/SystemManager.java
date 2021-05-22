@@ -248,17 +248,10 @@ public class SystemManager {
 		this.r = r;
 	}
 	
-	public void honeMethod(Weapon weapon) {
-		
-		if(weapon instanceof Ranged) {
+	public void hone(Weapon weapon) {
+		if(weapon instanceof Ranged)
 			((Ranged) weapon).setCriticalDamage( ((Ranged) weapon).getCriticalDamage() + 0.2 );
-		}
-		if(weapon instanceof Bladed) {
+		else
 			System.out.println("Cannot hone. Not a Ranged Weapon");
-		}
-		if(weapon instanceof Magical) {
-			System.out.println("Cannot hone. Not a Ranged Weapon");
-		}
 	}
-	
 }
