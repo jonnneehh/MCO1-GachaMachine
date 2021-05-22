@@ -6,7 +6,7 @@ import characters.Character;
 import characters.Element;
 import adventure.Map;
 import adventure.Enemy;
-
+ 
 public class SystemManager {
 	private Resources r = new Resources("Default", 16450);
 	public ArrayList<Character> characterList = new ArrayList<Character>();
@@ -110,8 +110,8 @@ public class SystemManager {
 		enemySuperiority = m.computeEnemySuperiority();
 		success = m.computeSuccess(characterSuperiority, enemySuperiority);
 		
-		System.out.println(String.valueOf(characterSuperiority));
-		System.out.println(String.valueOf(enemySuperiority));
+		//System.out.println(String.valueOf(characterSuperiority));
+		//System.out.println(String.valueOf(enemySuperiority));
 		
 		if(success == 1) {
 			//excellently completed
