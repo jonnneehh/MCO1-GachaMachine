@@ -4,7 +4,9 @@ public class Magical extends Weapon{
 	private int power;
 	private int rarity;
 	
-	public Magical(int power, int rarity, characters.Character characterOwner) {
+	public Magical(String name, int level, int power, int rarity, characters.Character characterOwner) {
+		this.name = name;
+		this.level = level;
 		this.power = power;
 		this.rarity = rarity;
 		this.characterOwner = characterOwner;
