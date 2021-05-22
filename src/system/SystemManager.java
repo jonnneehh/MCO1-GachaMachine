@@ -6,7 +6,7 @@ import characters.Character;
 import characters.Element;
 import adventure.Map;
 import adventure.Enemy;
-
+ 
 public class SystemManager {
 	private Resources Anima = new Resources("Anima", 16450);
 	private Resources Refina = new Resources("Refina", 16450);
@@ -113,7 +113,7 @@ public class SystemManager {
 		
 		//System.out.println(String.valueOf(characterSuperiority));
 		//System.out.println(String.valueOf(enemySuperiority));
-		    
+
 		if(success == 1) {
 			//excellently completed
 			if(c.getLevel() < 99) c.setLevel(c.getLevel() + 2);
@@ -260,17 +260,10 @@ public class SystemManager {
 		this.Anima = Anima;
 	}
 	
-	public void honeMethod(Weapon weapon) {
-		
-		if(weapon instanceof Ranged) {
+	public void hone(Weapon weapon) {
+		if(weapon instanceof Ranged)
 			((Ranged) weapon).setCriticalDamage( ((Ranged) weapon).getCriticalDamage() + 0.2 );
-		}
-		if(weapon instanceof Bladed) {
+		else
 			System.out.println("Cannot hone. Not a Ranged Weapon");
-		}
-		if(weapon instanceof Magical) {
-			System.out.println("Cannot hone. Not a Ranged Weapon");
-		}
 	}
-	
 }
