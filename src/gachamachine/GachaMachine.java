@@ -21,28 +21,28 @@ public class GachaMachine {
 		int defaultLevel = 20;
 		
 		//Rarity 1 Characters
-		defaultCharacterList.add(new Character("Jekyll", 1, Joker, defaultLevel, null));
-		defaultCharacterList.add(new Character("Earl Robert", 1, Trigger, defaultLevel, null));
-		defaultCharacterList.add(new Character("Count d'Artagnan", 1, Metal, defaultLevel, null));
-		defaultCharacterList.add(new Character("Stede", 1, Cyclone, defaultLevel, null));
-		defaultCharacterList.add(new Character("Kaguya", 1, Luna, defaultLevel, null));
-		defaultCharacterList.add(new Character("Van Helmont", 1, Heat, defaultLevel, null));
+		defaultCharacterList.add(new Character("Jekyll", 1, Joker, defaultLevel));
+		defaultCharacterList.add(new Character("Earl Robert", 1, Trigger, defaultLevel));
+		defaultCharacterList.add(new Character("Count d'Artagnan", 1, Metal, defaultLevel));
+		defaultCharacterList.add(new Character("Stede", 1, Cyclone, defaultLevel));
+		defaultCharacterList.add(new Character("Kaguya", 1, Luna, defaultLevel));
+		defaultCharacterList.add(new Character("Van Helmont", 1, Heat, defaultLevel));
 		
 		//Rarity 2 Characters
-		defaultCharacterList.add(new Character("Gray", 2, Joker, defaultLevel, null));
-		defaultCharacterList.add(new Character("Bonney", 2, Trigger, defaultLevel, null));
-		defaultCharacterList.add(new Character("Sir William Marshal", 2, Metal, defaultLevel, null));
-		defaultCharacterList.add(new Character("Teach", 2, Cyclone, defaultLevel, null));
-		defaultCharacterList.add(new Character("Jeanne", 2, Luna, defaultLevel, null));
-		defaultCharacterList.add(new Character("Paracelsus", 2, Heat, defaultLevel, null));
+		defaultCharacterList.add(new Character("Gray", 2, Joker, defaultLevel));
+		defaultCharacterList.add(new Character("Bonney", 2, Trigger, defaultLevel));
+		defaultCharacterList.add(new Character("Sir William Marshal", 2, Metal, defaultLevel));
+		defaultCharacterList.add(new Character("Teach", 2, Cyclone, defaultLevel));
+		defaultCharacterList.add(new Character("Jeanne", 2, Luna, defaultLevel));
+		defaultCharacterList.add(new Character("Paracelsus", 2, Heat, defaultLevel));
 		
 		//Rarity 3 Characters
-		defaultCharacterList.add(new Character("Faust", 3, Joker, defaultLevel, null));
-		defaultCharacterList.add(new Character("Clyde", 3, Trigger, defaultLevel, null));
-		defaultCharacterList.add(new Character("Masamune", 3, Metal, defaultLevel, null));
-		defaultCharacterList.add(new Character("Avery", 3, Cyclone, defaultLevel, null));
-		defaultCharacterList.add(new Character("Arthur", 3, Luna, defaultLevel, null));
-		defaultCharacterList.add(new Character("Hermes", 3, Heat, defaultLevel, null));
+		defaultCharacterList.add(new Character("Faust", 3, Joker, defaultLevel));
+		defaultCharacterList.add(new Character("Clyde", 3, Trigger, defaultLevel));
+		defaultCharacterList.add(new Character("Masamune", 3, Metal, defaultLevel));
+		defaultCharacterList.add(new Character("Avery", 3, Cyclone, defaultLevel));
+		defaultCharacterList.add(new Character("Arthur", 3, Luna, defaultLevel));
+		defaultCharacterList.add(new Character("Hermes", 3, Heat, defaultLevel));
 	}
 	
 	private void inputDefaultWeapons() {
