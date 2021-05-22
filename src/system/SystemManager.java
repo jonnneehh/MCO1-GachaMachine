@@ -8,7 +8,8 @@ import adventure.Map;
 import adventure.Enemy;
 
 public class SystemManager {
-	private Resources r = new Resources("Default", 16450);
+	private Resources Anima = new Resources("Anima", 16450);
+	private Resources Refina = new Resources("Refina", 16450);
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
@@ -31,7 +32,7 @@ public class SystemManager {
 	public void levelUp(Weapon w) {
 		if(w.getLevel() < 50) {
 			w.setLevel(w.getLevel() + 1);
-			this.r.setAmount(this.r.getAmount() - 1);
+			this.Refina.setAmount(this.Refina.getAmount() - 1);
 		}
 		else System.out.println("Maximum level reached!");
 	}
@@ -39,7 +40,7 @@ public class SystemManager {
 	public void levelUp(Character c) {
 		if(c.getLevel() < 100) {
 			c.setLevel(c.getLevel() + 1);
-			this.r.setAmount(this.r.getAmount() - 1);
+			this.Refina.setAmount(this.Refina.getAmount() - 1);
 		}
 		else System.out.println("Maximum level reached!");
 	}
@@ -110,8 +111,8 @@ public class SystemManager {
 		enemySuperiority = m.computeEnemySuperiority();
 		success = m.computeSuccess(characterSuperiority, enemySuperiority);
 		
-		System.out.println(String.valueOf(characterSuperiority));
-		System.out.println(String.valueOf(enemySuperiority));
+		//System.out.println(String.valueOf(characterSuperiority));
+		//System.out.println(String.valueOf(enemySuperiority));
 		
 		if(success == 1) {
 			//excellently completed
@@ -129,9 +130,11 @@ public class SystemManager {
 			System.out.println("Map Completed");
 		}
 		
-		this.r.setAmount(this.r.getAmount() + Math.round(this.r.totalResourcesGained(m, c)));
+		this.Refina.setAmount(this.Refina.getAmount() + Math.round(this.Refina.totalResourcesGained(m, c)));
+		this.Anima.setAmount( Math.toIntExact( this.Anima.getAmount() + Math.round( this.Anima.totalResourcesGained(m, c) * 0.7)) );
 	}
 	
+
 	public void startAdventure(Character c1, Character c2, Map m) {
 		int enemySuperiority = 0;
 		int characterSuperiority = 0;
@@ -164,7 +167,8 @@ public class SystemManager {
 			System.out.println("Map Completed");
 		}
 		
-		this.r.setAmount(this.r.getAmount() + Math.round(this.r.totalResourcesGained(m, c1, c2)));
+		this.Refina.setAmount(this.Refina.getAmount() + Math.round(this.Refina.totalResourcesGained(m, c1, c2)));
+		this.Anima.setAmount( Math.toIntExact( this.Anima.getAmount() + Math.round( this.Anima.totalResourcesGained(m, c1, c2) * 0.7)) );
 	}
 	
 	private void inputDefaultMapList() {
@@ -240,12 +244,20 @@ public class SystemManager {
 	}
 	
 	
-	public Resources getR() {
-		return r;
+	public Resources getRefina() {
+		return Refina;
 	}
 
-	public void setR(Resources r) {
-		this.r = r;
+	public void setRefina(Resources Refina) {
+		this.Refina = Refina;
+	}
+	
+	public Resources getAnima() {
+		return Anima;
+	}
+
+	public void setAnima(Resources Anima) {
+		this.Anima = Anima;
 	}
 	
 	public void honeMethod(Weapon weapon) {

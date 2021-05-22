@@ -16,14 +16,16 @@ public class Main {
 		while(userChoice != 5) {
 			userChoice = 0;
 			ui.showMenuTitle(userChoice);
-			System.out.println("Total Resources: " + sm.getR().getAmount());
+			System.out.println("Refina: " + sm.getRefina().getAmount());
+			System.out.println("Anima: " + sm.getAnima().getAmount());
 			userChoice = ui.showMainMenu();
 						
 			if(userChoice == 1) {
 				do{
 					userChoice = 1;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getR().getAmount());
+					System.out.println("Refina: " + sm.getRefina().getAmount());
+					System.out.println("Anima: " + sm.getAnima().getAmount());
 					
 					ui.displayAllCharacters(sm.characterList);
 					
@@ -88,7 +90,8 @@ public class Main {
 				do{
 					userChoice = 2;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getR().getAmount());
+					System.out.println("Refina: " + sm.getRefina().getAmount());
+					System.out.println("Anima: " + sm.getAnima().getAmount());
 					
 					ui.displayAllWeapons(sm.weaponList);
 					
@@ -153,7 +156,9 @@ public class Main {
 				do{
 					userChoice = 3;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getR().getAmount());
+					System.out.println("Refina: " + sm.getRefina().getAmount());
+					System.out.println("Anima: " + sm.getAnima().getAmount());
+					
 					userChoice = ui.showMaps();
 					//System Managers for showMaps
 					if(userChoice == 1) { //Start Adventure
@@ -201,36 +206,38 @@ public class Main {
 				do {
 					userChoice = 4;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Total Resources: " + sm.getR().getAmount());
+					System.out.println("Refina: " + sm.getRefina().getAmount());
+					System.out.println("Anima: " + sm.getAnima().getAmount());
+					
 					userChoice = ui.showGachaMachine();
 					//System Managers for showGachaMachine
 					if(userChoice == 1) { //Pull One Character
-						if(sm.getR().getAmount() >= 300) {
+						if(sm.getAnima().getAmount() >= 300) {
 							sm.addNewCharacter(gc.pullChar());
-							sm.getR().setAmount(sm.getR().getAmount() - 300);
+							sm.getAnima().setAmount(sm.getAnima().getAmount() - 300);
 						}
 						else System.out.println("Not enough resouces");
 					}
 					else if(userChoice == 2) { //Pull Ten Characters
-						if(sm.getR().getAmount() >= 2700) {
+						if(sm.getAnima().getAmount() >= 2700) {
 							for(int i = 0; i < 10; i++)
 								sm.addNewCharacter(gc.pullChar());
-							sm.getR().setAmount(sm.getR().getAmount() - 2700);
+							sm.getAnima().setAmount(sm.getAnima().getAmount() - 2700);
 						}
 						else System.out.println("Not enough resources");
 					}
 					else if(userChoice == 3) { //Pull One Weapon
-						if(sm.getR().getAmount() >= 300) {
+						if(sm.getAnima().getAmount() >= 300) {
 							sm.addNewWeapon(gc.pullWeapon());
-							sm.getR().setAmount(sm.getR().getAmount() - 300);
+							sm.getAnima().setAmount(sm.getAnima().getAmount() - 300);
 						}
 						else System.out.println("Not enough resources");
 					}
 					else if(userChoice == 4) { //Pull Ten Weapons
-						if(sm.getR().getAmount() >= 2700) {
+						if(sm.getAnima().getAmount() >= 2700) {
 							for(int i = 0; i < 10; i++)
 								sm.addNewWeapon(gc.pullWeapon());
-							sm.getR().setAmount(sm.getR().getAmount() - 2700);
+							sm.getAnima().setAmount(sm.getAnima().getAmount() - 2700);
 						}
 						else System.out.println("Not enough resources");
 					}
