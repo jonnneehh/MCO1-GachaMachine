@@ -5,7 +5,6 @@ public abstract class Weapon {
 	protected String name;
 	protected int level;
 	protected Character characterOwner;
-	protected String uniqueID;
 	
 	protected abstract int computeFinalWeaponPower();
 	protected abstract int computeFinalWeaponRarity();
@@ -32,13 +31,5 @@ public abstract class Weapon {
 	
 	public void setCharacterOwner(Character character) {
 		this.characterOwner = character;
-	}
-
-	public String getUniqueID() {
-		return uniqueID;
-	}
-
-	public void setUniqueID(String uniqueID) {
-		this.uniqueID = uniqueID;
 	}
 }

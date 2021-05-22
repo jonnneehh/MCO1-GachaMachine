@@ -1,27 +1,35 @@
 package weapons;
 
-public class Bladed extends Weapon{
+public class Ranged extends Weapon{
 	private int power;
 	private int rarity;
-	private boolean isGolden;
+	private int criticalDamage;
 	
-	public Bladed(String name, int level, int power, int rarity, boolean isGolden, characters.Character characterOwner) {
+	public Ranged(String name, int level, int power, int rarity, int criticalDamage, characters.Character characterOwner) {
 		this.name = name;
 		this.level = level;
 		this.power = power;
 		this.rarity = rarity;
-		this.isGolden = isGolden;
+		this.criticalDamage = criticalDamage;
 		this.characterOwner = characterOwner;
 	}
 	
 	@Override
-	protected int computeFinalWeaponPower() { 
-		return this.power * this.rarity + (10 * this.rarity);
+	protected int computeFinalWeaponPower() {
+		return this.power * this.rarity * this.criticalDamage;
 	}
-	
+
 	@Override
 	protected int computeFinalWeaponRarity() {
 		return this.rarity;
+	}
+
+	public int getCriticalDamage() {
+		return criticalDamage;
+	}
+
+	public void setCriticalDamage(int criticalDamage) {
+		this.criticalDamage = criticalDamage;
 	}
 	
 	public int getPower() {
@@ -32,14 +40,6 @@ public class Bladed extends Weapon{
 		this.power = power;
 	}
 
-	public boolean isGolden() {
-		return isGolden;
-	}
-
-	public void setGolden(boolean isGolden) {
-		this.isGolden = isGolden;
-	}
-
 	public int getRarity() {
 		return rarity;
 	}
@@ -47,5 +47,4 @@ public class Bladed extends Weapon{
 	public void setRarity(int rarity) {
 		this.rarity = rarity;
 	}
-	
 }
