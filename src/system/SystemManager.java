@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import weapons.*;
 import characters.Character;
 import characters.Element;
+import gachamachine.GachaMachine;
 import adventure.Map;
 import adventure.Enemy;
  
@@ -21,8 +22,6 @@ public class SystemManager {
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20));
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20)); 
 		
-		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
-		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
 		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
 		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
 		this.addNewWeapon(new Ranged("Bashosen", 1, 190, 2, 1.0));
@@ -269,4 +268,20 @@ public class SystemManager {
 		else
 			System.out.println("Cannot hone. Not a Ranged Weapon");
 	}
+	
+	public void rerollGoldenWeapon(Weapon w) {
+		Weapon newWeapon;
+		GachaMachine gc = new GachaMachine();
+		
+		if(w instanceof Bladed)
+			if (((Bladed) w).isGolden() == true) {
+				newWeapon = gc.pullWeapon();
+				weaponList.remove(w);
+				weaponList.add(newWeapon);
+			}
+			else 
+				System.out.println("Not a Golden Weapon");
+		else 
+			System.out.println("Not a Golden Weapon");
+	}		
 }

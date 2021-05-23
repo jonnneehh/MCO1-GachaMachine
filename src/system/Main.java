@@ -127,14 +127,27 @@ public class Main {
 						
 					}
 					
-					else if (userChoice == 3) {
+					else if (userChoice == 3) { //Hone Ranged Weapon
 						int weaponSelected = -1;
-						
+					
 						weaponSelected = sm.testChoiceWeapon(weaponSelected);
 						
 						sm.hone(sm.weaponList.get(weaponSelected));
 					}
-					else if (userChoice == 4 && sm.characterList.size() != 0 && sm.weaponList.size() != 0){ //Equip Weapon to Character
+					
+					else if (userChoice == 4) { //Reroll Golden Weapon
+						int weaponSelected = -1;
+						
+						weaponSelected = sm.testChoiceWeapon(weaponSelected);
+						
+						if(sm.weaponList.get(weaponSelected).getCharacterOwner() != null) {
+							sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected).getCharacterOwner())), 
+											 sm.weaponList.get(weaponSelected));
+						}
+						
+						sm.rerollGoldenWeapon(sm.weaponList.get(weaponSelected));
+					}
+					else if (userChoice == 5 && sm.characterList.size() != 0 && sm.weaponList.size() != 0){ //Equip Weapon to Character
 						int weaponSelected = -1;
 						int characterSelected = -1;
 						
@@ -156,7 +169,7 @@ public class Main {
 						
 						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 					}
-				}while(userChoice != 5);
+				}while(userChoice != 6);
 				userChoice = 0;
 			}
 			

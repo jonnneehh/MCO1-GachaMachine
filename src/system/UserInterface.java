@@ -67,8 +67,9 @@ public class UserInterface {
 		System.out.println("1: Level Up Weapons");
 		System.out.println("2: Merge Two Weapons");
 		System.out.println("3: Hone Ranged Weapon");
-		System.out.println("4: Equip Weapon to Character");
-		System.out.println("5: Back to Main Menu");
+		System.out.println("4. Reroll Golden Weapon");
+		System.out.println("5: Equip Weapon to Character");
+		System.out.println("6: Back to Main Menu");
 		System.out.print("Enter your choice here: ");
 		this.userChoice = scanner.nextInt();
 		
