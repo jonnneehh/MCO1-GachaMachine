@@ -15,7 +15,20 @@ public class Ranged extends Weapon{
 	
 	@Override
 	public int computeFinalWeaponPower() {
-		return (int) Math.round(this.getPower() * this.computeFinalWeaponRarity() * this.getCriticalDamage());
+		int finalWeaponPower;
+		double rarityMultiplier;
+		
+		if (this.computeFinalWeaponRarity() == 1) rarityMultiplier = 0.7;
+		else if (this.computeFinalWeaponRarity() == 2) rarityMultiplier = 0.8;
+		else if (this.computeFinalWeaponRarity() == 3) rarityMultiplier = 0.9;
+		else if (this.computeFinalWeaponRarity() == 4) rarityMultiplier = 1.0;
+		else if (this.computeFinalWeaponRarity() == 5) rarityMultiplier = 1.2;
+		else if (this.computeFinalWeaponRarity() == 6) rarityMultiplier = 1.5;
+		else rarityMultiplier = 0;
+		
+		finalWeaponPower = (int) Math.round(this.getPower() * rarityMultiplier * this.getCriticalDamage());
+		
+		return finalWeaponPower;
 	}
 
 	@Override
