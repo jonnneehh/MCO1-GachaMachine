@@ -17,10 +17,11 @@ public class SystemManager {
 	
 	public void startProgram() {
 		Element Joker = new Element("Joker");
+		String bladed = "Bladed";
 		
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20)); 
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20));
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20)); 
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, bladed)); 
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, bladed));
+		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, bladed)); 
 		
 		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
 		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
@@ -71,9 +72,25 @@ public class SystemManager {
 		}
 	}
 	
+	public boolean isEquippableWeapon(Character c, Weapon w) {
+		String weaponType;
+		
+		if(w instanceof Bladed) weaponType = "Bladed";
+		else if(w instanceof Magical) weaponType = "Magical";
+		else weaponType = "Ranged";
+		
+		if(weaponType == c.getEquippableWeaponType()) {
+			return true;
+		}
+		else {
+			System.out.println("This character can only equip " + c.getEquippableWeaponType() + " type weapons");
+			return false;
+		}
+	}
+	
 	public void equipWeapon(Character c, Weapon w) {
-		c.setWeapon(w);
-		w.setCharacterOwner(c);
+			c.setWeapon(w);
+			w.setCharacterOwner(c);
 	}
 	
 	public void unequipWeapon(Character c, Weapon w) {

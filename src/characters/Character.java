@@ -7,12 +7,14 @@ public class Character {
 	private Element element;
 	private int level;
 	private Weapon weapon;
+	private String equippableWeaponType;
 	
-	public Character(String name, int rarity, Element element, int level) {
+	public Character(String name, int rarity, Element element, int level, String equippableWeaponType) {
 		this.setName(name);
 		this.setRarity(rarity);
 		this.setElement(element);
 		this.setLevel(level);
+		this.setEquippableWeaponType(equippableWeaponType);
 	}
 	
 	public int computeTotalCharInfluence() {
@@ -41,7 +43,7 @@ public class Character {
 				(this.element.getName() == "Trigger" && c.element.getName() == "Luna") ||
 				(this.element.getName() == "Metal" && c.element.getName() == "Heat"))
 			return 1.75f;
-		
+		 
 		//Bad Pairing
 		else if((this.element.getName() == "Cyclone" && c.element.getName() == "Luna") || 
 				(this.element.getName() == "Cyclone" && c.element.getName() == "Heat") ||
@@ -91,5 +93,13 @@ public class Character {
 	
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
+	}
+
+	public String getEquippableWeaponType() {
+		return equippableWeaponType;
+	}
+
+	public void setEquippableWeaponType(String equippableWeaponType) {
+		this.equippableWeaponType = equippableWeaponType;
 	}
 }

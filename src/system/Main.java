@@ -42,7 +42,7 @@ public class Main {
 						int characterSelected1 = -1;
 						int characterSelected2 = -1;
 						int characterSelected3 = -1;
-						
+						 
 						characterSelected1 = sm.testChoiceCharacter(characterSelected1);
 						characterSelected2 = sm.testChoiceCharacter(characterSelected2);
 						characterSelected3 = sm.testChoiceCharacter(characterSelected3);
@@ -69,18 +69,19 @@ public class Main {
 						ui.displayAllWeapons(sm.weaponList);
 						
 						weaponSelected = sm.testChoiceWeapon(weaponSelected);
-						
-						if(sm.weaponList.get(weaponSelected).getCharacterOwner() != null) {
-							sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected).getCharacterOwner())), 
-									 sm.weaponList.get(weaponSelected));
+						if(sm.isEquippableWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected)) == true){
+							if(sm.weaponList.get(weaponSelected).getCharacterOwner() != null) {
+								sm.unequipWeapon(sm.characterList.get(sm.characterList.indexOf(sm.weaponList.get(weaponSelected).getCharacterOwner())), 
+										 sm.weaponList.get(weaponSelected));
+							}
+							
+							if(sm.characterList.get(characterSelected).getWeapon() != null) {
+								sm.unequipWeapon(sm.characterList.get(characterSelected), 
+										 		 sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected).getWeapon())));
+							}
+							
+							sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 						}
-						
-						if(sm.characterList.get(characterSelected).getWeapon() != null) {
-							sm.unequipWeapon(sm.characterList.get(characterSelected), 
-									 		 sm.weaponList.get(sm.weaponList.indexOf(sm.characterList.get(characterSelected).getWeapon())));
-						}
-						
-						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 					}
 				}while(userChoice != 4);
 			}
