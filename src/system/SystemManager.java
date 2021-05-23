@@ -8,8 +8,8 @@ import adventure.Map;
 import adventure.Enemy;
  
 public class SystemManager {
-	private Resources Anima = new Resources("Anima", 16450);
-	private Resources Refina = new Resources("Refina", 16450);
+	private Resources Anima = new Resources("Anima", 10000);
+	private Resources Refina = new Resources("Refina", 10000);
 	public ArrayList<Character> characterList = new ArrayList<Character>();
 	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
@@ -21,9 +21,11 @@ public class SystemManager {
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20));
 		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20)); 
 		
-		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 2));
+		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
+		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
+		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
 		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
-		this.addNewWeapon(new Ranged("Bashosen", 1, 190, 2, 1));
+		this.addNewWeapon(new Ranged("Bashosen", 1, 190, 2, 1.0));
 		this.addNewWeapon(new Bladed("Golden Cudgel", 1, 200, 2, true));
 		
 		this.inputDefaultMapList();
@@ -48,9 +50,9 @@ public class SystemManager {
 	public void merge(Weapon mainW, Weapon w2, Weapon w3) {
 		if(mainW.getRarity() < 5) {
 			if(mainW.getName() == w2.getName() && mainW.getName() == w3.getName() &&
-					mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
+			   mainW.getRarity() == w2.getRarity() && mainW.getRarity() == w3.getRarity()) {
 				mainW.setRarity(mainW.getRarity() + 1);
-				
+					
 				this.weaponList.remove(w2);
 				this.weaponList.remove(w3);
 			}
@@ -133,7 +135,6 @@ public class SystemManager {
 		this.Refina.setAmount(this.Refina.getAmount() + Math.round(this.Refina.totalResourcesGained(m, c)));
 		this.Anima.setAmount( Math.toIntExact( this.Anima.getAmount() + Math.round( this.Anima.totalResourcesGained(m, c) * 0.7)) );
 	}
-	
 
 	public void startAdventure(Character c1, Character c2, Map m) {
 		int enemySuperiority = 0;
@@ -243,7 +244,6 @@ public class SystemManager {
 		return choice;
 	}
 	
-	
 	public Resources getRefina() {
 		return Refina;
 	}
@@ -262,7 +262,10 @@ public class SystemManager {
 	
 	public void hone(Weapon weapon) {
 		if(weapon instanceof Ranged)
-			((Ranged) weapon).setCriticalDamage( ((Ranged) weapon).getCriticalDamage() + 0.2 );
+			if (((Ranged) weapon).getCriticalDamage() <= 1.9) //Something about Java glitches if CritDamage < 2.0. Still works though.
+				((Ranged) weapon).setCriticalDamage( ((Ranged) weapon).getCriticalDamage() + 0.2);
+			else 
+				System.out.println("Maximum Crit Damage Reached");
 		else
 			System.out.println("Cannot hone. Not a Ranged Weapon");
 	}

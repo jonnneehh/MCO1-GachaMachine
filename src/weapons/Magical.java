@@ -13,7 +13,7 @@ public class Magical extends Weapon{
 	
 	@Override
 	public int computeFinalWeaponPower() {
-		return this.power * this.rarity;
+		return this.getPower() * this.computeFinalWeaponRarity();
 	}
 	
 	@Override
@@ -23,7 +23,7 @@ public class Magical extends Weapon{
 	
 	@Override
 	public int getPower() {
-		return power;
+		return this.power;
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class Magical extends Weapon{
 	
 	@Override
 	public int getRarity() {
-		return rarity;
+		return this.rarity;
 	}
 	
 	@Override

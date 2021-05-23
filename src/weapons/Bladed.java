@@ -15,7 +15,7 @@ public class Bladed extends Weapon{
 	
 	@Override
 	public int computeFinalWeaponPower() { 
-		return this.power * this.rarity + (10 * this.rarity);
+		return this.getPower() * this.computeFinalWeaponRarity() + (10 * this.computeFinalWeaponRarity());
 	}
 	
 	@Override

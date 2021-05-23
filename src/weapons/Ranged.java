@@ -15,7 +15,7 @@ public class Ranged extends Weapon{
 	
 	@Override
 	public int computeFinalWeaponPower() {
-		return (int) Math.round(this.power * this.rarity * this.criticalDamage);
+		return (int) Math.round(this.getPower() * this.computeFinalWeaponRarity() * this.getCriticalDamage());
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class Ranged extends Weapon{
 	
 	@Override
 	public int getRarity() {
-		return rarity;
+		return this.rarity;
 	}
 	
 	@Override
@@ -46,7 +46,7 @@ public class Ranged extends Weapon{
 	}
 	
 	public double getCriticalDamage() {
-		return criticalDamage;
+		return this.criticalDamage;
 	}
 
 	public void setCriticalDamage(double criticalDamage) {

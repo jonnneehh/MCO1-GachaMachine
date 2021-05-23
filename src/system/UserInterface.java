@@ -35,6 +35,11 @@ public class UserInterface {
 		else System.out.println("Main Menu: "); 
 	}
 	
+	public void showResources(int refina, int anima) {
+		System.out.println("Refina: " + refina);
+		System.out.println("Anima: " + anima);
+	}
+	
 	public int showMainMenu() {
 		System.out.println("1: Show Characters");
 		System.out.println("2: Show Weapons");
@@ -61,8 +66,9 @@ public class UserInterface {
 	public int showWeaponMenu() {
 		System.out.println("1: Level Up Weapons");
 		System.out.println("2: Merge Two Weapons");
-		System.out.println("3: Equip Weapon to Character");
-		System.out.println("4: Back to Main Menu");
+		System.out.println("3: Hone Ranged Weapon");
+		System.out.println("4: Equip Weapon to Character");
+		System.out.println("5: Back to Main Menu");
 		System.out.print("Enter your choice here: ");
 		this.userChoice = scanner.nextInt();
 		
@@ -79,10 +85,10 @@ public class UserInterface {
 	}
 	
 	public int showGachaMachine(){
-		System.out.println("1: Pull One Character (300)");
-		System.out.println("2: Pull Ten Characters (2700)");
-		System.out.println("3: Pull One Weapon (300)");
-		System.out.println("4: Pull Ten Weapons (2700)");
+		System.out.println("1: Pull One Character (300 Anima)");
+		System.out.println("2: Pull Ten Characters (2700 Anima)");
+		System.out.println("3: Pull One Weapon (300 Anima)");
+		System.out.println("4: Pull Ten Weapons (2700 Anima)");
 		System.out.println("5: Back to Main Menu");
 		System.out.print("Enter your choice here: ");
 		this.userChoice = scanner.nextInt();
@@ -119,12 +125,13 @@ public class UserInterface {
 	private void headOfWeaponInfo() {
 		System.out.println(String.format("%-7s", "Index") + String.format("%-30s", "Name") + String.format("%-7s", "Rarity") + 
 						   String.format("%-10s", "Power") + String.format("%-7s", "Level") + String.format("%-15s", "Weapon Type") +
-						   String.format("%-15s", "Character Owner"));
+						   String.format("%-17s", "Critical Damage") + String.format("%-15s", "Character Owner"));
 	}
 	
 	private void displayWeaponInfo(Weapon w, int weaponIndex) {
 		String CharacterOwner;
 		String WeaponType;
+		String criticalDamage;
 		
 		if (w.getCharacterOwner() == null) CharacterOwner = "None";
 		else CharacterOwner = w.getCharacterOwner().getName();
@@ -135,10 +142,12 @@ public class UserInterface {
 			if(((Bladed) w).isGolden()) WeaponType = "Golden";
 			else WeaponType = "Bladed";
 		
-		
-		System.out.println(String.format("%-7s", weaponIndex) + String.format("%-30s",w.getName()) + String.format("%-7s", String.valueOf(w.getRarity())) + 
+		if (w instanceof Ranged) criticalDamage = String.format("%.2f", ((Ranged) w).getCriticalDamage());
+		else criticalDamage = "-";
+		System.out.println(String.format("%-7s", weaponIndex) + String.format("%-30s",w.getName()) + 
+						   String.format("%-7s", String.valueOf(w.computeFinalWeaponRarity())) + 
 				   		   String.format("%-10s", String.valueOf(w.getPower())) + String.format("%-7s", String.valueOf(w.getLevel())) +
-				   		   String.format("%-15s", WeaponType) + String.format("%-15s", CharacterOwner));
+				   		   String.format("%-15s", WeaponType) + String.format("%-17s", criticalDamage) + String.format("%-15s", CharacterOwner));
 	}
 	
 	private void headOfMapInfo() {
@@ -150,7 +159,7 @@ public class UserInterface {
 	}
 	
 	public void displayAllWeapons(ArrayList<Weapon> weaponList) {
-		this.headOfWeaponInfo();
+		this.headOfWeaponInfo(); 
 		for(int i = 0; i < weaponList.size() ; i++)
 			this.displayWeaponInfo(weaponList.get(i), i);
 	}

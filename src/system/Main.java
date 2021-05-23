@@ -16,16 +16,15 @@ public class Main {
 		while(userChoice != 5) {
 			userChoice = 0;
 			ui.showMenuTitle(userChoice);
-			System.out.println("Refina: " + sm.getRefina().getAmount());
-			System.out.println("Anima: " + sm.getAnima().getAmount());
+			ui.showResources(sm.getRefina().getAmount(), sm.getAnima().getAmount());
 			userChoice = ui.showMainMenu();
-						
+			
+			//CHARACTERS
 			if(userChoice == 1) {
 				do{
 					userChoice = 1;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Refina: " + sm.getRefina().getAmount());
-					System.out.println("Anima: " + sm.getAnima().getAmount());
+					ui.showResources(sm.getRefina().getAmount(), sm.getAnima().getAmount());
 					
 					ui.displayAllCharacters(sm.characterList);
 					
@@ -85,13 +84,13 @@ public class Main {
 					}
 				}while(userChoice != 4);
 			}
-				
+			
+			//WEAPONS
 			else if(userChoice == 2) {
 				do{
 					userChoice = 2;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Refina: " + sm.getRefina().getAmount());
-					System.out.println("Anima: " + sm.getAnima().getAmount());
+					ui.showResources(sm.getRefina().getAmount(), sm.getAnima().getAmount());
 					
 					ui.displayAllWeapons(sm.weaponList);
 					
@@ -108,7 +107,7 @@ public class Main {
 						int weaponSelected1 = -1;
 						int weaponSelected2 = -1;
 						int weaponSelected3 = -1;
-						
+						 
 						weaponSelected1 = sm.testChoiceWeapon(weaponSelected1);
 						weaponSelected2 = sm.testChoiceWeapon(weaponSelected2);
 						weaponSelected3 = sm.testChoiceWeapon(weaponSelected3);
@@ -127,7 +126,15 @@ public class Main {
 								 sm.weaponList.get(weaponSelected3));
 						
 					}
-					else if (userChoice == 3 && sm.characterList.size() != 0 && sm.weaponList.size() != 0){ //Equip Weapon to Character
+					
+					else if (userChoice == 3) {
+						int weaponSelected = -1;
+						
+						weaponSelected = sm.testChoiceWeapon(weaponSelected);
+						
+						sm.hone(sm.weaponList.get(weaponSelected));
+					}
+					else if (userChoice == 4 && sm.characterList.size() != 0 && sm.weaponList.size() != 0){ //Equip Weapon to Character
 						int weaponSelected = -1;
 						int characterSelected = -1;
 						
@@ -149,15 +156,16 @@ public class Main {
 						
 						sm.equipWeapon(sm.characterList.get(characterSelected), sm.weaponList.get(weaponSelected));
 					}
-				}while(userChoice != 4);
+				}while(userChoice != 5);
+				userChoice = 0;
 			}
 			
+			//MAP
 			else if(userChoice == 3) {
 				do{
 					userChoice = 3;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Refina: " + sm.getRefina().getAmount());
-					System.out.println("Anima: " + sm.getAnima().getAmount());
+					ui.showResources(sm.getRefina().getAmount(), sm.getAnima().getAmount());
 					
 					userChoice = ui.showMaps();
 					//System Managers for showMaps
@@ -202,12 +210,12 @@ public class Main {
 				}while(userChoice != 2);
 			}
 			
+			//GACHA MACHINE
 			else if(userChoice == 4) {
 				do {
 					userChoice = 4;
 					ui.showMenuTitle(userChoice);
-					System.out.println("Refina: " + sm.getRefina().getAmount());
-					System.out.println("Anima: " + sm.getAnima().getAmount());
+					ui.showResources(sm.getRefina().getAmount(), sm.getAnima().getAmount());
 					
 					userChoice = ui.showGachaMachine();
 					//System Managers for showGachaMachine
