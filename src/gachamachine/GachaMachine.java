@@ -74,10 +74,10 @@ public class GachaMachine {
 	public Character pullChar(){
 		int rarity = 0;
 		int index = 0;
+		Character pulledCharacter;
 		
 		this.inputDefaultCharacters();
-		
-		//totalResources = totalResources - 300;
+		 
 		rarity = rarityRandomizer();
 		
 		if(rarity == 1) {
@@ -92,16 +92,18 @@ public class GachaMachine {
 			index = ThreadLocalRandom.current().nextInt(12, 17 + 1);
 		}
 		
-		return defaultCharacterList.get(index);
+		pulledCharacter = defaultCharacterList.get(index);
+		this.defaultCharacterList.removeAll(defaultCharacterList);
+		return pulledCharacter;
 	}
 
 	public Weapon pullWeapon() {
 		int rarity = 0;
 		int index = 0;
+		Weapon pulledWeapon;
 		
 		this.inputDefaultWeapons();
 		
-		//totalResources = totalResources - 300;
 		rarity = rarityRandomizer();
 		
 		if(rarity == 1) {
@@ -117,7 +119,10 @@ public class GachaMachine {
 			index = ThreadLocalRandom.current().nextInt(12, 17 + 1);
 		}
 		
-		return defaultWeaponList.get(index);
+		pulledWeapon = defaultWeaponList.get(index);
+		this.defaultWeaponList.removeAll(defaultWeaponList);
+		
+		return pulledWeapon;
 	}
 	
 	private int rarityRandomizer() {
