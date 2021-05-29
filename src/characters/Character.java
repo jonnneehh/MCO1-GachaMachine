@@ -1,7 +1,7 @@
 package characters;
 import weapons.Weapon;
 
-public class Character {
+public class Character{
 	private String name;
 	private int rarity;
 	private Element element;
@@ -102,4 +102,5 @@ public class Character {
 	public void setEquippableWeaponType(String equippableWeaponType) {
 		this.equippableWeaponType = equippableWeaponType;
 	}
+	
 }
