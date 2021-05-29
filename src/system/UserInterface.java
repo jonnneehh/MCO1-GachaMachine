@@ -7,7 +7,6 @@ import adventure.Map;
 
 public class UserInterface {
 	private Scanner scanner = new Scanner(System.in);
-	
 	private int userChoice;
 	
 	public UserInterface() {
@@ -41,10 +40,10 @@ public class UserInterface {
 	}
 	
 	public int showMainMenu() {
-		System.out.println("1: Show Characters");
-		System.out.println("2: Show Weapons");
-		System.out.println("3: Show Maps");
-		System.out.println("4: Show Gacha Machine");
+		System.out.println("1: Character Menu");
+		System.out.println("2: Weapon Menu");
+		System.out.println("3: Map Menu");
+		System.out.println("4: Gacha Machine Menu");
 		System.out.println("5: Exit Program");
 		System.out.print("Enter your choice here: ");
 		this.userChoice = scanner.nextInt();
