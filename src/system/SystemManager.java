@@ -16,18 +16,6 @@ public class SystemManager {
 	public ArrayList<Map> defaultMapList = new ArrayList<Map>(); 
 	
 	public void startProgram() {
-		Element Joker = new Element("Joker");
-		String bladed = "Bladed";
-		
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, bladed)); 
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, bladed));
-		this.addNewCharacter(new Character("Jekyll", 1, Joker, 20, bladed)); 
-		
-		this.addNewWeapon(new Magical("Merlin’s Staff", 1, 170, 1));
-		this.addNewWeapon(new Bladed("Knife", 1, 130, 1, false));
-		this.addNewWeapon(new Ranged("Bashosen", 1, 190, 2, 1.0));
-		this.addNewWeapon(new Bladed("Golden Cudgel", 1, 200, 2, true));
-		
 		this.inputDefaultMapList();
 	}
 	
@@ -265,6 +253,23 @@ public class SystemManager {
 		int maxInt = 100 - c.getLevel();
 		
 		if(c.getLevel() != 100) {
+			do {
+				choice = ui.selectNumberOfLevels();
+			}while(choice > maxInt || choice < 0);
+			
+			return choice;
+		}
+		else {
+			System.out.println("Your character is fully maxed");
+			return 0;
+		}
+	}
+	
+	public int testLevelChoice(Weapon w, int choice) {
+		UserInterface ui = new UserInterface();
+		int maxInt = 100 - w.getLevel();
+		
+		if(w.getLevel() != 100) {
 			do {
 				choice = ui.selectNumberOfLevels();
 			}while(choice > maxInt || choice < 0);

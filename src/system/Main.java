@@ -102,11 +102,14 @@ public class Main {
 					userChoice = ui.showWeaponMenu();
 					//System Managers for showAllWeapons
 					if(userChoice == 1 && sm.weaponList.size() != 0) { //Level up Weapon
-						int weaponSelected = -1;
+						int weaponSelected = -1, numOfLevels = 0;
 						
 						weaponSelected = sm.testChoiceWeapon(weaponSelected);
 						
-						sm.levelUp(sm.weaponList.get(weaponSelected));
+						numOfLevels = sm.testLevelChoice(sm.weaponList.get(weaponSelected), numOfLevels);
+						
+						for(int i = 0; i < numOfLevels; i++)
+							sm.levelUp(sm.weaponList.get(weaponSelected));
 					}
 					else if(userChoice == 2 && sm.weaponList.size() >= 3) { //Merge Weapons
 						int weaponSelected1 = -1;
