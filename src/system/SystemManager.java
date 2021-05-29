@@ -295,8 +295,10 @@ public class SystemManager {
 	
 	public void hone(Weapon weapon) {
 		if(weapon instanceof Ranged)
-			if (((Ranged) weapon).getCriticalDamage() <= 1.9) //Something about Java glitches if CritDamage < 2.0. Still works though.
-				((Ranged) weapon).setCriticalDamage( ((Ranged) weapon).getCriticalDamage() + 0.2);
+			if (((Ranged) weapon).getCriticalDamage() <= 1.9) {//Something about Java glitches if CritDamage < 2.0. Still works though.
+				((Ranged) weapon).setCriticalDamage( ((Ranged) weapon).getCriticalDamage() + 0.2); 
+				this.Refina.setAmount(this.Refina.getAmount() - 10);
+			}
 			else 
 				System.out.println("Maximum Crit Damage Reached");
 		else
@@ -312,6 +314,7 @@ public class SystemManager {
 				newWeapon = gc.pullWeapon();
 				weaponList.remove(w);
 				weaponList.add(newWeapon);
+				this.Refina.setAmount(this.Refina.getAmount() - 150);
 			}
 			else 
 				System.out.println("Not a Golden Weapon");
