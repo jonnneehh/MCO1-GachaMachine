@@ -267,11 +267,11 @@ public class Main {
 						}
 						else System.out.println("Not enough resources");
 					}
-				}while(userChoice != 5);	
-				userChoice = 0;
+				}while(userChoice != 5);
+			}
+			else if(userChoice == 5) { //Exit Program?
+				userChoice = ui.exitProgram();
 			}
 		}
-		
-		ui.exitProgram();
 	}
 }

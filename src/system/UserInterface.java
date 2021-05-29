@@ -216,9 +216,25 @@ public class UserInterface {
 		return indexChosen;
 	}
 	
-	public void exitProgram() {
-		System.out.println("Exiting Program...");
-		/* Some code to put here maybe when the time comes.
-		 * */
+	public int exitProgram() {
+		String userChoice;
+		
+		do {
+		System.out.print("Do you want to exit the program? (Y/n): ");
+		userChoice = scanner.next();
+		
+			if(userChoice.equals("Y") || userChoice.equals("y")) {
+				System.out.println("Exiting Program...");
+				return 5; //5 will end the while loop
+			}
+			
+			else if (userChoice.equals("N") || userChoice.equals("n")) {
+				System.out.println("Going back to Main menu...");
+				return 0;
+			}
+			
+		}while(!(userChoice.equals("Y") || userChoice.equals("y") || userChoice.equals("N") || userChoice.equals("n")));
+		
+		return 0;
 	}
 }
