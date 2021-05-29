@@ -207,6 +207,16 @@ public class UserInterface {
 		return indexChosen;
 	}
 	
+	public int selectNumberOfLevels() {
+		int indexChosen;
+		
+		System.out.print("Select how many levels: ");
+		indexChosen = scanner.nextInt();
+		
+		System.out.println("");
+		return indexChosen;
+	}
+	
 	public void exitProgram() {
 		System.out.println("Exiting Program...");
 		/* Some code to put here maybe when the time comes.

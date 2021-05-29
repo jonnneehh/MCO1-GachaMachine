@@ -260,6 +260,23 @@ public class SystemManager {
 		return choice;
 	}
 	
+	public int testLevelChoice(Character c, int choice) {
+		UserInterface ui = new UserInterface();
+		int maxInt = 100 - c.getLevel();
+		
+		if(c.getLevel() != 100) {
+			do {
+				choice = ui.selectNumberOfLevels();
+			}while(choice > maxInt || choice < 0);
+			
+			return choice;
+		}
+		else {
+			System.out.println("Your character is fully maxed");
+			return 0;
+		}
+	}
+	
 	public Resources getRefina() {
 		return Refina;
 	}

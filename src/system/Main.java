@@ -32,11 +32,15 @@ public class Main {
 					
 					//System Managers for showAllCharacters
 					if(userChoice == 1 && sm.characterList.size() != 0) { //Level Up Characters
-						int characterSelected = -1;
-						
+						int characterSelected = -1, numOfLevels = 0;
+			
 						characterSelected = sm.testChoiceCharacter(characterSelected);
 						
-						sm.levelUp(sm.characterList.get(characterSelected));
+						numOfLevels = sm.testLevelChoice(sm.characterList.get(characterSelected), numOfLevels);
+						
+						for(int i = 0; i < numOfLevels; i++)
+							sm.levelUp(sm.characterList.get(characterSelected));
+						
 					}
 					else if(userChoice == 2 && sm.characterList.size() >= 3) { //Merge Characters
 						int characterSelected1 = -1;
